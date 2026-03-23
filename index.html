@@ -128,12 +128,16 @@ font-family: 'Share Tech Mono', monospace;
             border-bottom: red solid 1px;
             height: 60%;
         }
-        #sender button{
-            font-size: 10%;
-            width: 20%;
-        }
+        input:focus,
+input:active,
+input:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border-color: inherit;
+  background: rgb(255,255,255,0.2);
+}
         #sender input{
-            width: 70%;
+            width: 100%;
         }
         #continer{
             width: 100%;
@@ -261,7 +265,7 @@ position: absolute;
     z-index: 5;
     border: white solid 2px;
     right: 5%;
-    top: 1%;
+    top: 2%;
 }
 
 #load > div {
@@ -1456,8 +1460,16 @@ chat_defense.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             </div>`;
 
 }
-chat_defense.scrollTop = chat_defense.scrollHeight;
-
+chat_defense.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+chat_room.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
 });
 onChildAdded(ref(db, 'chat_security_class'), (snap) => {
     const m = snap.val();
@@ -1480,8 +1492,16 @@ chat_security.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             </div>`;
 
 }
-chat_security.scrollTop = chat_security.scrollHeight;
-
+chat_security.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+chat_room.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
 });
 onChildAdded(ref(db, 'chat_tisa'), (snap) => {
     const m = snap.val();
@@ -1503,7 +1523,16 @@ chat_tisa.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             </div>`;
 
 }
-chat_tisa.scrollTop = chat_tisa.scrollHeight;;
+chat_tisa.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+chat_room.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
 
 });
 onChildAdded(ref(db, 'chat_upper_class'), (snap) => {
@@ -1527,8 +1556,16 @@ chat_upper.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             </div>`;
 
 }
-chat_upper.scrollTop = chat_upper.scrollHeight;
-
+chat_upper.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+chat_room.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
 });
 
 
@@ -1550,9 +1587,10 @@ txt_send.ondblclick = async function() {
     if (chat_upper.style.display === "block") {
         chatPath = "chat_upper_class";
     }
-    if(chat_security.style.display === "block" || chat_defense.style.display === "block" && localStorage.getItem("types") === "tisa") {
+    if(chat_security.style.display === "block" || chat_defense.style.display === "block") {
+    if(localStorage.getItem("types") === "tisa"){
      alert("Your rank is higher than theirs, for you are their overseer; your position does not permit you to m")
-    }
+    }}
     if (!txt_send.value) {
         alert("الرجاء ملء جميع الحقول");
         return;
