@@ -371,7 +371,7 @@ height: 100%;
 <div id="chat_upper" style="display:none;"></div>
 </div>
 <div id="sender">
-<input type="text" id="txt_send" value="....." /><button id="button_sender">send</button>
+<input type="text" id="txt_send" value="....." />
 </div>
 </div>
 <div id="news" style="overflow: auto;height: 100%;width: 40%;display: inline-block;margin-left: 5%;border:none;border-bottom: red solid 1px;border-top: red solid 1px;animation: opn 1s;">
@@ -480,7 +480,6 @@ let erorr = document.getElementById("erorr")
 let secrtet_left = document.getElementById("secrtet_left")
 let secrtet_right = document.getElementById("secrtet_right")
 let txt_send = document.getElementById("txt_send")
-let button_sender = document.getElementById("button_sender")
 let types = document.getElementById("types")
 let serch = document.getElementById("serch")
 let creat = document.getElementById('creat')
@@ -1534,7 +1533,7 @@ chat_upper.scrollTop = chat_upper.scrollHeight;
 
 
 
-button_sender.onclick = async function() {
+txt_send.ondblclick = async function() {
     const userType = localStorage.getItem("types");
     let chatPath = "";
 
