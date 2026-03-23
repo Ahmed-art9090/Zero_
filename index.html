@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+        <style type="text/css" media="all">
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+*{
+    font-family: 'Orbitron', sans-serif;
+}
+            body{
+                background: black;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            position: relative;
+            overflow: hidden;
+            }
+#run,.continer{
+width: 100%;
+height: 100%;
+}
+            .msg_me{
+color: #727272;
+position: relative;
+            right: 0;
+font-size: 10px;
+}
+        .msg_you{
+  color: white;
+            position: relative;
+left: 0;
+            font-family: 'Orbitron', sans-serif;
+font-size: 10px;
+}
+.post{
+    width: 97.2%;
+    margin: 2%;
+    margin-bottom: 5%;
+}
+.post h2{
+    color: red;
+    background: rgb(255,255,255,0.07);
+}
+.post p{
+    color: white;
+}
+.attached{
+    width: 100%;
+}
+@keyframes opn{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 40%;
+    }
+}
+@keyframes opn_y{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 30%;
+    }
+}
+@keyframes opn_y_n{
+    0%{
+        height: 30%;
+    }
+    100%{
+        height: 0%;
+    }
+}
+
+#news{overflow: auto;height: 100%;width: 40%;display: inline-block;margin-left: 5%;border:none;border-bottom: red solid 1px;border-top: red solid 1px;animation: opn 1s;
+
+    
+}
+            #erorr{
+            border: solid 1px red;
+            color: red;
+            font-family: ;
+            width: 50%;
+            height: 50%;
+            margin-left: 12.5%;
+            }
+input,button{
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: white solid 1px;
+    border-top: white solid 1px;
+    margin: 2.5%;
+}
+input:hover,button:hover{
+background: rgb(255,255,255,0.015);
+}
+input:focus{
+background: rgb(255,255,255,0.03);
+}
+            #erorr , h1{
+font-family: 'Share Tech Mono', monospace;
+                   margin-left: 2%;
+            }
+    #erorr , p{
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 2%;
+            }
+        #chat{width: 40%;height: 100%;margin-left: 1%;border-bottom: white solid 1px;border-top: white solid 1px;overflow: hidden;display: inline-block;animation: opn 1s;
+        }
+        #chat_room{
+        width: 100%;
+        height: 80%;
+        }
+#chat_security,#chat_defense,#chat_tisa,#chat_upper{
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        }
+        #sender{
+        width: 100%;
+        height: 20%;
+        overflow: hidden;
+        }
+        #sender input,#sender button{
+            border-top: red solid 1px;
+            border-bottom: red solid 1px;
+            height: 60%;
+        }
+        #sender button{
+            font-size: 10%;
+            width: 20%;
+        }
+        #sender input{
+            width: 70%;
+        }
+        #continer{
+            width: 100%;
+            height: 100%;
+        }
+        #intro_txt {
+           
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        @keyframes disapper{
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        .disapper{
+            position: absolute;
+            z-index: 100;
+            bottom: 0;
+            width: 25%;
+            height: 25%;
+            display: inline-block;
+        }
+        #secrtet_left{
+            left: 0;
+        }
+
+#secrtet_right{
+            right: 0;
+        }
+        @keyframes apper{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    .txt,.txt2{
+        color: white;
+        display: inline-block;
+        margin-left: 7%;
+        animation: apper 0.87s;
+    }
+    .txt2{
+        color: red;
+    }
+    #top{
+        width: 100%;
+        height: 15%;
+        background: ;
+    }
+    select{
+        border: none;
+     border-top: white solid 1px;
+     border-bottom: white solid 1px;
+     background: black;
+     color: white;
+    }
+    .idt{
+        height: 30%;
+        width: 20%;
+        border: none;
+border-top: red solid 1px;
+     border-bottom: red solid 1px;
+     padding-bottom: 1%;
+     padding-top: 1%;
+     margin: 1.5%;
+     animation: opn_y 1s;
+     display: none;
+     margin-left: 2.5%;
+       position: relative;
+  z-index: 1;
+    }
+    .idt video {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #text_tisa{
+        color: white;
+    margin-left: 2.5%;
+  line-height: 1.8em;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1.7em,
+    red 1.7em,
+    red 1.8em
+  );
+  background-size: 100% 1.8em;
+  padding: 0.2em 0;
+  font-size: 16px;
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+#score_tisa{
+position: absolute;
+z-index: 4;
+color: white;
+
+}
+#intro{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+#load {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* عمودين بعرض متساوٍ */
+  grid-template-rows: 1fr 1fr;    /* صفين بارتفاع متساوٍ */
+  width: 30px;
+  height: 30px;
+  gap: 0; 
+  transform: rotate(45deg);
+position: absolute;
+    z-index: 5;
+    border: white solid 2px;
+    right: 5%;
+    top: 1%;
+}
+
+#load > div {
+background: white;
+  border: 1px solid black;
+}
+@keyframes opn_window_chang_chat {
+    0%{
+width: 0;
+height: 2.5px;
+    }
+    50%{
+width: 50%;
+height: 2.5px;
+    }
+    100%{
+width: 50%;
+height: 35%;
+    }
+}
+@keyframes close_window_chang_chat {
+    0%{
+width: 50%;
+height: 35%;
+    }
+    50%{
+width: 50%;
+height: 2.5px;
+    }
+    100%{
+width: 0;
+height: 2.5px;
+    }
+
+}
+#window_chang_chat{
+width: 50%;
+height: 35%;
+display: none;
+background: black;
+border-left:none;
+border-right:none;
+border-top:2.5px solid white;
+border-bottom:2.5px solid white;
+animation: 1s opn_window_chang_chat;
+position: absolute;
+z-index: 45;
+top:2.5%;
+left: 2.5%;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.buttns_rooms_window_chang_chat{
+    border: 1px black solid;
+    overflow: hidden;
+}
+.buttons_chat{
+overflow: hidden;
+border:white solid 1px;
+
+}
+.buttons_chat img{
+width: 100%;
+height: 100%;
+}
+.containerjfjdj {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: flex-start; /* يمنع تمدد العناصر لمحاذاة الارتفاع */
+
+}
+
+        </style>
+    </head>
+    <body>
+<button style="display:;" id="serch">serch</button>
+<button style="display:;" onclick="opn_creat" id="creat">creat</button>
+<div id="run" style="display:none;">
+<div id="continer" style="display:none;">
+<div id="top" display="none">
+<h3 id="user_name_txt" class="txt"></h3>
+<h3 id="id_txt" class="txt"></h3>
+<h3 id="risk_txt" class="txt"></h3>
+<h3 id="time_txt" class="txt"></h3>
+</div>
+<div class="containerjfjdj">
+<div id="chat"style="width: 40%;height: 100%;margin-left: 1%;border-bottom: white solid 1px;border-top: white solid 1px;overflow: hidden;display: inline-block;animation: opn 1s;">
+<div id="chat_room">
+<div id="chat_defense" style="display:none;"></div>
+<div id="chat_security" style="display:none;"></div>
+<div id="chat_tisa" style="display:none;"></div>
+<div id="chat_upper" style="display:none;"></div>
+</div>
+<div id="sender">
+<input type="text" id="txt_send" value="....." /><button id="button_sender">send</button>
+</div>
+</div>
+<div id="news" style="overflow: auto;height: 100%;width: 40%;display: inline-block;margin-left: 5%;border:none;border-bottom: red solid 1px;border-top: red solid 1px;animation: opn 1s;">
+</div>
+
+    
+</div>
+</div>
+<h1 id="intro_txt"></h1>
+</div>
+
+<div id="opn_creat" style="display:none;">
+    <input placeholder="name" id="text" value="Name" />
+    <input placeholder="password" type="password" id="pass" />
+    <input placeholder="user_name" type="text" id="user_name" value="" />
+<select id="types">
+  <option value="security" id="security">security</option>
+<option value="defense" id="defense">defense</option>
+<option style="display:none;" value="tisa" id="tisa">TISA</option>
+</select>
+    <button id="send">send</button>
+        </div>
+<div id="opn_serch" style="display:none;">
+<input placeholder="user_name" id="user_name_s" value="Name" />
+<input type="password" id="password_1" value="Password" placeholder="Password"/>
+<input style="display:none;" type="number" id="id_s" value="Id" />
+<button id="joine">join</button>
+</div>
+    <div style="display:none;" id="erorr">
+    <h1>ERORR 404</h1>
+    <h3>The connection to Dimension Zero has been lost. Please install the latest version and delete this version for the latest version to function.</h3>
+    </div>
+<div  id="window_chang_chat">
+<div id="chat_tisa" onclick="chang_chat(this.id)" class="buttons_chat">
+<img src="r/tisa.png" alt="" />
+</div>
+
+<div id="chat_defense" onclick="chang_chat(this.id)" class="buttons_chat">
+<img src="r/defense.png" alt="" />
+</div>
+<div id="chat_security" onclick="chang_chat(this.id)" class="buttons_chat">
+<img src="r/security.png" alt="" />
+</div>
+<div id="chat_upper_class" onclick="chang_chat(this.id)" class="buttons_chat">
+<img src="r/upper_class.png" alt="" />
+</div>
+</div>
+<div id="secrtet_left" class="disapper"></div>
+    <div id="secrtet_right" class="disapper">
+        </div>
+<div id="intro">
+<div id="into1" class="idt">
+    <video src="" id="video" width="100%" height="100%" autoplay="autoplay" loop></video>
+</div>
+<div id="into2" class="idt">
+    <video src="" id="vid" width="100%" height="100%" autoplay="autoplay" loop></video>
+</div>
+<div id="into3" class="idt">
+    <video src="" id="vi" width="100%" height="100%" autoplay="autoplay" loop></video>
+</div>
+<h1 id="score_tisa"></h1>
+<pre id="text_tisa">
+    
+</pre>
+</div>
+ <div id="load">
+<div id="part1">
+    
+</div>
+<div id="part2">
+    
+</div>
+<div id="part3">
+    
+</div>
+<div id="part4">
+
+</div>
+ </div>
+    </body>
+    <script type="module" charset="utf-8">
+        
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { getDatabase, ref, remove, push, update, set, onValue , onChildAdded , get } 
+from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+const firebaseConfig = {
+    apiKey: "AIzaSyDwjHJgVMEsmK9Ce6RUXUbP5WaW1FCMbOY",
+    authDomain: "zeros-a64a9.firebaseapp.com",
+    databaseURL: "https://zeros-a64a9-default-rtdb.firebaseio.com",
+    projectId: "zeros-a64a9",
+    storageBucket: "zeros-a64a9.firebasestorage.app",
+    messagingSenderId: "320322392141",
+    appId: "1:320322392141:web:2721ba36878dd402a88c04",
+    measurementId: "G-V10ZLD3PNZ"
+  };const app = initializeApp(firebaseConfig);const db = getDatabase(app);
+let idx = ""
+let loock = ""
+let security = document.getElementById("security")
+let window_chang_chat = document.getElementById("window_chang_chat")
+let defense = document.getElementById("defense")
+let tisa = document.getElementById("tisa")
+let user_name = document.getElementById("user_name")
+let send = document.getElementById("send")
+let text = document.getElementById("text")
+let erorr = document.getElementById("erorr")
+let secrtet_left = document.getElementById("secrtet_left")
+let secrtet_right = document.getElementById("secrtet_right")
+let txt_send = document.getElementById("txt_send")
+let button_sender = document.getElementById("button_sender")
+let types = document.getElementById("types")
+let serch = document.getElementById("serch")
+let creat = document.getElementById('creat')
+let run = document.getElementById("run")
+let opn_serch = document.getElementById("opn_serch")
+let opn_creat = document.getElementById('opn_creat')
+let user_name_s = document.getElementById("user_name_s")
+let chat_room = document.getElementById('chat_room')
+let joine = document.getElementById("joine")
+let intro_txt = document.getElementById("intro_txt")
+let continer = document.getElementById("continer")
+let id_txt = document.getElementById("id_txt")
+let vid = document.getElementById("vid")
+let into2 = document.getElementById("into2")
+let video = document.getElementById("video")
+let into1 = document.getElementById("into1")
+let vi = document.getElementById("vi")
+let into3 = document.getElementById("into3")
+let load = document.getElementById("load")
+let part1 = document.getElementById("part1")
+let part2 = document.getElementById("part2")
+let part3 = document.getElementById("part3")
+let part4 = document.getElementById("part4")
+let user_name_txt = document.getElementById("user_name_txt")
+let time_txt = document.getElementById("time_txt")
+let text_tisa = document.getElementById("text_tisa")
+let news = document.getElementById("news")
+let pass = document.getElementById('pass')
+let ip;  
+let risk_txt = document.getElementById("risk_txt")
+let c_b_r = "white"
+let allInputs = document.querySelectorAll('input');
+let allbuttons = document.querySelectorAll('button')
+let score_tisa = document.getElementById("score_tisa")
+let allselect = document.querySelectorAll('select')
+let chat_tisa = document.getElementById("chat_tisa")
+let chat_defense = document.getElementById("chat_defense")
+let chat_security = document.getElementById("chat_security")
+let chat_upper = document.getElementById("chat_upper")
+let tisa_rooms = "tisa"
+let load_start = false
+let talking_one = new Audio("r/intro_system.mp3"); 
+fetch('https://api.ipify.org').then(r=>r.text()).then()
+
+secrtet_left.onclick = function(){
+    loock += "0"
+    test_loock()
+}
+secrtet_right.onclick = function(){
+    loock += "1"
+    test_loock()
+}
+function test_loock(){
+    let x =  "1001001001"
+    if(loock === x){
+        
+secrtet_right.style.display = "none"
+serch.style.display = "none"
+creat.style.display = "none"
+opn_creat.style.display = "none"
+opn_serch.style.display = "none"
+secrtet_right.style.display = "none"
+secrtet_left.style.display = "none"
+tisa.style.display = "none"
+defense.style.display = "none"
+security.style.display = "none"
+types.value = "tisa"
+style_tisa()
+intro_tisa()
+c_b_r = "red"
+load.style.border = "solid 1px red"
+    }
+}
+let wer = ""
+function intro_tisa(){
+    serch.style.animation = "disapper 1s"
+    creat.style.animation = "disapper 1s"
+    setTimeout(function(){
+serch.style.display = "none"
+creat.style.display = "none"
+video.src = "r/screen1.mp4"
+into1.style.display = "inline-block"
+video.play()
+setTimeout(function(){
+vid.src = "r/screen2.mp4"
+into2.style.display = "inline-block"
+vid.play()
+talking_one.play()
+setTimeout(function(){
+vi.src = "r/screen3.mp4"
+into3.style.display = "inline-block"
+vi.play()
+},990)
+setTimeout(function(){
+    text_tisa.style.display = "block"
+ wer = `The intelligence system has been activated:
+Spying, Was Done;
+Rank Promotion: Was Done;
+The Formation Of The Zero: Was Done`
+print(wer,text_tisa)
+},2400)
+setTimeout(function(){
+score_tisa.style.display = "inline-block"
+score_tisa.style.animation = "apper 0.9s"
+let score = 9
+score_tisa.innerHTML = String(score)
+let ghot = setInterval(function(){
+score_tisa.innerHTML = String(score)
+if(score === 0){
+clearInterval(ghot)
+setTimeout(function(){
+close_tisa_intro()
+},2000)
+}
+score =score-1
+},2000)
+},2400)
+},990)
+
+    },1000)
+}
+function close_tisa_intro(){
+text_tisa.style.animation = "disapper 1s"
+score_tisa.style.animation = "disapper 1s"
+setTimeout(function(){
+text_tisa.style.display = "none"
+score_tisa.style.display = "none"
+},1000)
+setTimeout(function(){
+into1.style.animation = "opn_y_n 1s"
+into2.style.animation = "opn_y_n 1s"
+into3.style.animation = "opn_y_n 1s"
+setTimeout(function(){
+into1.style.display = "none"
+into2.style.display = "none"
+into3.style.display = "none"
+setTimeout(function(){
+serch.style.display = "inline-block"
+creat.style.display = "inline-block"
+creat.style.animation = "apper 1s"
+serch.style.animation = "apper 1s"
+},400)
+},1000)
+},600)
+}
+function print(text,element){
+    let z = 0
+    let ty = [...text]
+    element.innerHTML = ""
+  let h =setInterval(function(){
+element.innerHTML += ty[z]
+z++
+if(z === ty.length){
+    clearInterval(h)
+}
+  },70) 
+}
+function style_tisa(){
+    allInputs.forEach(input => {
+    input.style = 'border-bottom:red solid 1px; border-top:solid 1px red;';
+});
+allbuttons.forEach(button => {
+    button.style = 'border-bottom:red solid 1px; border-top:solid 1px red;';
+});
+allselect.forEach(select => {
+    select.style = 'border-bottom:red solid 1px; border-top:solid 1px red;';
+});
+}
+joine.onclick = function(){
+ 
+get(ref(db, "members")).then(snap => {
+    const data = snap.val();
+    if(!data) return;
+
+    Object.entries(data).forEach(([key, value]) => {
+if(decrypt(value.user_name) === user_name_s.value){
+if(password_1.value === decrypt(value.pas)){
+localStorage.setItem("id_user",decrypt(value.from))
+localStorage.setItem("user_n",decrypt(value.user_name))
+localStorage.setItem("password",decrypt(value.pass))
+end()
+}}
+if(decrypt(value.user_name) != user_name_s.value){
+}
+    });
+  });
+}
+window.chang_chat = function(id){
+chat_defense.style.display = "none"
+chat_tisa.style.display = "none"
+chat_upper.style.display = "none"
+chat_security.style.display = "none"
+if(id === "chat_upper_class"){
+chat_upper.style.display = "block"
+chat_tisa.style.animation = "1s apper"
+chat_upper.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+}
+if(id === "chat_tisa"){
+chat_tisa.style.display = "block"
+chat_tisa.style.animation = "1s apper"
+chat_tisa.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+}
+if(id === "chat_security"){
+chat_security.style.display = "block"
+chat_security.style.animation = "1s apper"
+chat_security.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+}
+if(id === "chat_defense"){
+chat_defense.style.display = "block"
+chat_defense.style.animation = "1s apper"
+chat_defense.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+});
+}
+}
+
+function end(){
+    opn_creat.style.display = "none"
+    opn_serch.style.display = "none"
+}
+function login() {
+    // ✅ 1. التحقق من العناصر أولاً قبل استخدامها
+    if (!text || !text.value) {
+        
+        return;
+    }
+    
+    const t = text.value.trim();
+    if (t === '') {
+     
+        return;
+    }
+
+    // ✅ 2. تخزين الأنواع بكشف أخطاء
+    if (typeof types !== 'undefined' && types && types.value) {
+        localStorage.setItem("types", types.value);
+    } else {
+        localStorage.setItem("types", "default"); // قيمة افتراضية
+    }
+
+    // ✅ 3. إنشاء المرجع
+    const msgRef = push(ref(db, "requests"));
+    
+    // ✅ 4. بناء الوقت بشكل صحيح
+    const now = new Date();
+    const hours   = now.getHours(); 
+    const minutes = now.getMinutes(); 
+    const seconds = now.getSeconds(); 
+    let a = ":";
+    let x = hours + a + minutes + a + seconds;  // مثال: "14:30:45"
+    
+    // ✅ 5. تصحيح الخطأ الرئيسي (حذف .type)
+// ← كان الخطأ هنا: x.type
+
+    // ✅ 6. تخزين كلمة المرور بكشف أخطاء
+    if (pass && pass.value) {
+        localStorage.setItem('password', pass.value);
+    }
+    
+    localStorage.setItem('name_zero_zero', t);
+
+    // ✅ 7. دالة مساعدة لجلب القيم بأمان
+    const getVal = (el) => {
+        if (!el) return '';
+        if (typeof el === 'string') return el;
+        if (el.value) return el.value;
+        return String(el);
+    };
+
+    const getLocal = (key) => localStorage.getItem(key) || '';
+
+    // ✅ 8. الإرسال لـ Firebase
+    set(msgRef, {
+        name: encrypt(t),
+        type: encrypt(getLocal('types')),
+        pas: encrypt(getLocal("password")),
+        ip_address: encrypt(getVal(ip)),
+        user_name: encrypt(getVal(user_name)),
+        from: encrypt(getLocal("id_user")),
+        log: encrypt("waiting"),
+        time: encrypt(x),
+    });
+
+  
+localStorage.setItem("user_name",user_name.value)
+    // ✅ 9. تفريغ الحقول
+    if (text) text.value = "";
+    if (user_name) user_name.value = "";
+    if (pass) pass.value = "";
+}
+
+
+send.onclick= function(){
+    login()
+};
+
+creat.onclick = function(){
+serch.style.display = "none"
+creat.style.display = "none"
+opn_creat.style.display = "block"
+}
+serch.onclick = function(){
+serch.style.display = "none"
+creat.style.display = "none"
+opn_serch.style.display = "block"
+}
+function creat_id() {
+
+  for (let i = 0; i < 13; i++) {
+    idx += Math.floor(Math.random() * 10);
+  }
+  return idx;
+}
+
+
+if(!localStorage.getItem('id_user')){
+    creat_id()
+    localStorage.setItem('id_user',idx)
+    
+}
+if(localStorage.getItem("id_user") ==! null){
+    idx = localStorage.getItem("id_user")
+}
+
+// استقبال الملفات والنصوص وعرضها
+onValue(ref(db, 'news'), snap => {
+const data = snap.val();
+if(!data) return;
+news.innerHTML = ""; // تنظيف العرض
+
+Object.entries(data).forEach(([id, m]) => {
+let w = decrypt(m.name)
+let e = decrypt(m.text)
+let f = m.fileData
+let t = m.fileType
+let content = `<h2>${w}</h2><p>${e}</p>`;
+if(f && t){
+if(t.startsWith("image/")){
+content += `<img class="attached" src="${f}" style="max-width:300px;">`;
+} else if(t.startsWith("video/")){
+content += `<video class="attached" src="${f}" style="max-width:300px;"loop controls></video>`;
+} else if(t.startsWith("audio/")){
+content += `<audio class="attached" src="${f}" controls></audio>`;
+}
+}
+
+news.innerHTML += `<div class="post">${content}<hr/></div>`;
+    news.scrollTop = news.scrollHeight;
+});
+});
+
+
+function start(){
+
+    let c = ""
+    let a = 0
+serch.style.display = "none"
+creat.style.display = "none"
+
+run.style.display = "block"
+if(localStorage.getItem("types")==="defense"){
+    c = [..."defense"]
+}
+if(localStorage.getItem("types")==="security"){
+    c = [..."security"]
+}
+if(localStorage.getItem("types") === "tisa"){
+    c = [..."intelligence"]
+}
+run.style = "display: flex;justify-content: center;align-items: center;"
+
+setTimeout(function(){
+let v = setInterval(function(){
+intro_txt.innerHTML += c[a]
+a++
+if(a === c.length){
+clearInterval(v)
+setTimeout(function(){
+run.style = ""
+setTimeout(function(){
+continer.style.display = "block"
+news.style.display = "none"
+time_txt.style.display = "none"
+risk_txt.style.display = "none"
+user_name_txt.style.display = "none"
+id_txt.style.display = "none"
+creat.style.display = "none"
+serch.style.display = "none"
+setTimeout(function(){
+news.style.display = "inline-block"
+setTimeout(function(){
+user_name_txt.style.display = "inline-block"
+id_txt.style.display = "inline-block"
+creat.style.display = "inline-block"
+serch.style.display = "inline-block"
+creat.style.display = "none"
+serch.style.display = "none"
+},860)
+},860)
+},700)
+intro_txt.style.display = "none"
+},700)
+}
+},100)
+},500)
+
+
+}
+let rinks = ["T.Mask", "Hacker", "Kracker", "General", "legendary", "imperial", "Satan", "Cosmic", "zero"];
+let rinks_risk = [100, 500, 1000, 1500, 2000, 5000, 7000, 15000, 30000];
+let rinks_risk_adds = [5, 20, 35, 50, 75, 80, 90, 100, 200];
+
+function up_lower() {
+  
+    
+    get(ref(db, "members")).then((snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+
+            Object.entries(data).forEach(([key, value]) => {
+                const decryptedFrom = decrypt(value.from);
+                const userId = localStorage.getItem("id_user");
+
+                if (decryptedFrom === userId) {
+                    let place_rink = rinks.indexOf(value.rink);
+
+                    if (place_rink !== -1) {
+                        let currentRisk = Number(value.risk) || 0;
+                        let riskToAdd = Number(rinks_risk_adds[place_rink]) || 0;
+                        let newRisk = currentRisk + riskToAdd;
+
+                        update(ref(db, `members/${key}`), {
+                            risk: newRisk
+                        }).then(() => {
+
+                        }).catch((error) => {
+                        });
+                    }
+                }
+            });
+        } else {
+            
+        }
+    }).catch((error) => {
+     
+    }); // إغلاق catch و then
+} // إغلاق دالة up_lower
+
+function dfgh(){
+secrtet_right.style.display = "none"
+secrtet_left.style.display = "none"
+start()
+creat.style.display = "none"
+serch.style.display = "none"
+opn_serch.style.display = "none"
+opn_creat.style.display = "none"
+if(localStorage.getItem("types")==="tisa"){
+creat.style.display = "none"
+serch.style.display = "none"
+c_b_r = "red"
+load.style.border = "solid 1px red"
+
+}
+console.log(localStorage.getItem("types") )
+if(localStorage.getItem("types") === "tisa"){
+chat_tisa.style.animation = "apper 1s"
+chat_tisa.style.display = "block"
+}
+if(localStorage.getItem("types") === "security"){
+chat_security.style.animation = "apper 1s"
+chat_security.style.display = "block"
+}
+if(localStorage.getItem("types") === "defense"){
+chat_defense.style.animation = "apper 1s"
+chat_defense.style.display = "block"
+}
+}
+
+onValue(ref(db, localStorage.getItem("id_user")+"set"), snap => {
+  const m = snap.val();
+  if(!m) return;
+if(load_start === true){
+    load_start = false
+}
+if(load_start === false){
+if(m.a === "finsh"){dfgh();}
+  if(m.a === "agree"){
+
+  if (!text.value) return;
+ const msgRef = push(ref(db, "members"));
+  set(msgRef, {
+name: encrypt(localStorage.getItem("name_zero_zero")),
+ip_address:encrypt(ip),
+user_name:encrypt(localStorage.getItem("user_name")),
+from:encrypt(localStorage.getItem("id_user")),
+types:encrypt(localStorage.getItem("types")),
+pas:encrypt(localStorage.getItem("password")),
+rink:"T.Mask",
+minister:"no",
+risk:100,
+  });
+set(ref(db, localStorage.getItem("id_user") + "set"), { a: "finsh" });
+load_start = true
+}
+  if(m.a === "disagree"){
+erorr.style.display = "block"
+secrtet_right.style.display = "none"
+secrtet_left.style.display = "none"
+serch.style.display = "none"
+run.style.display = "none"
+creat.style.display = "none"
+}
+}
+
+
+});
+
+function encrypt(txt){
+    let result = '';
+     txt = String(txt)
+     let words = txt.split(' ');
+    for(let w of words){
+        if(w === '') continue; // تجاهل المسافات الزائدة
+        // اختيار معرف عشوائي
+        let marker = markers[Math.floor(Math.random()*markers.length)];
+        result += marker;
+        // اختيار وصف عشوائي من الموجود مسبقًا
+        let symKeys = Object.keys(descriptors);
+        let sym = symKeys[Math.floor(Math.random()*symKeys.length)];
+        let desc = descriptors[sym];
+        result += sym;
+        // تشفير الحروف حرف حرف
+        for(let ch of w){
+            let idx = mother.indexOf(ch);
+            if(idx===-1){ result += ch; continue; }
+            let newIdx = (idx + desc.shift) % mother.length;
+            result += matrices[desc.matrix][newIdx];
+        }
+    }
+    return result;
+}
+function decrypt(txt){
+    let result = '';
+    let i = 0;
+     txt = String(txt)
+    while(i<txt.length){
+        // قراءة المعرف
+        let marker = txt[i];
+        if(!markers.includes(marker)){ i++; continue; }
+        i++;
+        // قراءة وصف
+        let sym = txt[i];
+        if(!descriptors[sym]){ i++; continue; }
+        let desc = descriptors[sym];
+        i++;
+        // فك التشفير حتى الوصول لمعرف جديد
+        while(i<txt.length && !markers.includes(txt[i])){
+            let ch = txt[i];
+            let idx = matrices[desc.matrix].indexOf(ch);
+            if(idx===-1){ result += ch; i++; continue; }
+            let origIdx = (idx - desc.shift + mother.length*10) % mother.length;
+            result += mother[origIdx];
+            i++;
+        }
+        result += ' '; // إعادة المسافة بين الكلمات
+    }
+    return result.trim();
+}
+let mother = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzابتثجحخدذرزسشصضطظعغفقكلمنهوي1234567890.:?؟+-"
+const markers = ['?', '!', ';', ':', '\'', '"', '*', ']', '[', '{', '}', '\\'];
+const matrices = {
+A1: "mQв3%мをおحやㅈوаяоとちW字れzさㅋرAらこ8いほえصіなеき文ㅊエPㅂOㅓBんaR0خجиF$そ-يS‰ثㅡあもvㅁりひㅔdえㅌイtلwاлб)おHㅐうE쇼NضуGط漢цわ7&joґp'ㅑYfたUr/ㅕけزشрsulьمみウZのсㄷїkغh@ыJㅏnذسєせгㄴдM℅نIكかㅜкアてшㅣDх6فчとね퓨#ت9xおй_VقよはKжع5+qc호4(нこ1XろT2LㄱبюфygзiにCтいпeあましㄹbهそへدめ中ظㅇ",
+
+A2: "ㅜكьせ8+اㅔظ5ウra'lCㅌهSцш文ㅐmEzоيعたпґمشㅕ(ちA_уや4єよ漢bあ#XけыれIㄱwзエみкіر‰صвあをアفきдVгんかDㄹ호&яxїسYحこvW퓨زそえい)とㅡめㅣKら1PへлなまsqدこнㄴثおZنgмn-さс$ㅂtюطبㅑおUoeほhえغйyخе3ろひFلO@i字りф9G中NиㅋcBтおねх%dㅇpL/もрбしㅈのQkو0といжMаfجㅊそRイJذㅓてقч7ㄷت℅Hうuㅁわ쇼jㅏTはに6ض2",
+
+A3: "дyу0юIHおذJ7ㅋmґㅊطл4iXрaf퓨へLいㅔدはそ漢ㅡو(ㅈнيتцg8لїм_zعㅂеhCثみ文こㅕいهخمあ$ちжほあYとめとㅇxضろㅑㄹKEاатDьRblG+є5eBZхこやq6てرまもчT1えFиにpVNおエcwAㅣ‰WغわStれشحQえㅓりкそыㄷj%ようяねせ)йをoسかㅁUsфنсkら字たM@ㅏо2なібきけㅌزق9ج&호イفㄱ℅كгdㄴし-ظvш'Oㅐ쇼rの/вㅜnさ#uんおصP3пبзひアウ中",
+
+A4: "lまQهやqいㄹXшاㅐNㄷр#вんuPذはAoこさおせوらп4зえmㅜIㅁそfイgh)ثㅡدv字ㅌㄴ7ㅔR5FめxбㅂنCとそわよwJ3Tц(_сHD$ねもх호خウきㅋغдへGㅓ6بUか漢ㅇ퓨ㅈEおnㅕطひضㄱйVж中エc0'21ظ%℅чєえㅊtя쇼のれмをгїرиyمbうнpыBおあф@شуيلZ&Yа-zسюkоSьほたㅑちقفMいㅏみеしزなとحi文こлK/りLに9sけكてdجeґعOろrкaтjص‰8ㅣあアWتі+",
+
+A5: "Uをнذ+Tsدㅊ7йかはеحovهjㅡ)ضшwхさ(2ㅐыюそcSとr文вりиいgㅋe中ㅏnえت漢ґへغき1GV-zPyسㅣідxれqQсちEhقع%M'ثい85lㄱ40طアяخmHтそㅌуK‰ㅑろOєㄴㅜめIبFt字ほんエおて3dのㅇあZгㄹㅓLaлجまお#ㅂㅈもた@bظXص/kNㅁCز$こзJلкにイаとわやpAмㄷらцيfرفㅔоひあпえㅕウمрYكфuشみよDおiけBو6ن℅쇼せ호б_なїьRا퓨чねしこW&ж9う",
+
+A6: "سдіم-i1なrVыおяхucfひ℅нんفいㅜNаㅐоїكєあAтXlㅇさظまذjрاnBш9やغيoろも0صwちㅣد2JㄷㄹKSこهбりみそCbсYлґ쇼ضかに字dثIHط)E文Wえ5уьخO中ㅌおけкxTㅋй&たわㅊうG3мDとk+漢アeエ/しg6せウгпㄱおQイ_وюM#شزよFqцㄴvㅈقеをz퓨hرنㅂ7RめㅑれLфتعあs호てねPзجㅁ@えㅏلt%4чㅓU8'そبmはㅡいほらとへきZиp‰حㅕж(のyㅔвaこ$",
+
+A7: "eяエйおさيきけアسزgnせとウفてطчjㅁひにの_ㅡえVQうこはㅑそ0ㅊXїشㅓㅌへえJPこㅏㄹちجوعгلрдkNあㅔ'лㄴ@єyثhたіH2あしcAقґE&بㅜت#ㅈFtめおいю5مштaBizكخرをظㅕфصrьUㅂMりжdらqпわWと7нLbいеиみほкض文ㅋ6а字れKまろбZんvыもね中1Dや9+(s%o퓨wㅇㅣYоC4хс호O3هp쇼Gا‰Sxなзよそ-Iㄱغㄷmuц8уかfRм漢イ$ㅐおدذв℅نlح)/T",
+
+A8: "шこ퓨ZQいFлطㅓ中たrTаㅈ字ظзいMKуmїю7りفまotxنهもbяشمґめにRح_こ#g@قちひㅏнردрjㅡwчBcبんn(5ㅐ6اعpㅋкみkNウえとьгiえ4'خsyㅕvㅊJAYはсイіكけu%еほㅂeなの9мوцㅔアIdおيD文0ㅑㅣلせを+Eへきфㄷ$Hㄹ/ثて1ㄱれねzжGあPおうエиしおдかㅇпhaWйㅁы漢хそㄴら8よє호2qб℅やㅌصろ‰)あоOвCㅜV쇼-とわさтそlLزUfض&تXغذسSج3",
+
+A9: "دxやsdとف中ㅡгウضㄹаFTADRえ$ㅇتкらgNحろ文‰نьPイтIた(なшていㄷмㅈU쇼юおїфZJとㅋあへpねвжえ'&رсㅣYh漢و호ㅏo5ㅁㅓрбしيりa0л+нㅐうㄴkі3wهvcذ#8かCпわおあれغعش@字GlXrكアطب℅そちみسSхbもnثこ퓨7ق9оmخمчзまظのこы2ひ/цいйедfんуґeめяOㅂEHおє)ㅌ4けزほصzVさt6q-を_BجMはyエにKきㅑ1ㅜلQ%よWㅔuاそjLㄱㅊiせиㅕ",
+
+A10: "7mUвおみ퓨さㅐيتбaㅜわц中0+ㄴえㄷчvґhن1ㅊeسㅇ호ظq字فнkTF℅あKㄱsとBかMはXた6EせثiへCもا3らpそちхㅈ4і%соxطそوㅌObおにまкهYきе/rVJウしおмあ)9مаよcいPこれR5え2#غㅁHㅓDㅣu$Adいюعшزㄹ(やض-ㅕSصgとnфㅡめGьろ'ㅂجな_بアпуほyтㅋof‰イذNحㅏз쇼漢tїLрыйخのㅑ8لدzكгwエя@иりQこlをけл文うIقжひjねんてرشдㅔє&ZW",
+
+A11: "ㅓنㅁおGїqdき호زPجウo'ㄱرS2ねUYㅌеよиi漢こعhさyDrRZとjغLlشお89uйXたнكせえへほгㄷなㅑ字Wㅕлそvㅣط60퓨IتㅈいやдحQEث4mвсpптMろ1ديCولьエㄹمصtHのにcnKてこаあ3wфひれも℅ㅂO7ㅇㅡそыю$فと-ㄴみおبaうはTㅏxкちх/ظзbмまрけsz@FあбاA_し&かهイ쇼めア%іцґんㅐ#Vわい)gєذ中ㅊを(5らㅋ+чfسNJжeшkضえخㅔоя文りقуBㅜ‰",
+
+A12: "еㅕれчDwちмґよدいоdzج)fと/ㄹ'عMCpこおخ‰بдI_$@イнG%юطїZわvㄱU0фفㅣكろへыㅏ#زXغㅓظ中пㅔきさのたひкиKeyهcあ℅اnيYとіنㅊ쇼aERصلえㅌはorHをエみxuرm4kлㅋ퓨ح字2ьりいならسLㅡقو8&+ウ1おхثほяtㄷiㅇけえてєйそう-ねSせㅈذB文WгсㅁㄴPあзA7もр6Tsㅜ(かまвNцF호んшбㅂqتJQمに漢g9やおVこhуめそアаOjㅑشض5bжтし3lㅐ",
+
+A13: "JDおхwりア+مけسWіغض4ひн6шㄹは'_ㅡсت쇼MґこㅣよんuさoまTㅈ(おあれ/イкyYцそ5しをㅁOьㅜاㅇそろмウSb-ㄱنiثPUㅓ℅てㄴ퓨ZрうжخkㅂQV호ю@Bわえ1иのみїとxfㅔ中きㅑㅊNصشdFらбtこㅌ)гeI7EになㄷかAもmт漢sыrいエㅋKCjqあدXдpя&ر字حg3nめ%#たчc‰0лطへ$8いهفلㅐvHєとえhبзおфせаزеоRㅕуaظzعl文9йLقㅏпやвGوねちكج2يذほ",
+
+A14: "4іяCJろبㅓ쇼もㅌ호еそjyわхかن)XwあбoкDоNпFتف3ыせ‰زحخㅋひ'PRAㅈ@fUイсkciよاなㄴおWㄷめやえx_твてصき(ㅐまلりسLl6ㅑqㅁшфㅡO℅Hいへж/퓨عцんㅔこgeにґذられzюㅜуh文و-52おtQbnничとはغおㅏvكضدㅣ#さエそمㄹㅕظлдجїうZpこط字9Vね$sa1漢アSほз+EたあєгيرをBちのهKrаG&とقIけ7ㅇ0Tрm中ウMмみ8uYえьйش%ㅊㄱㅂしثdい",
+
+A15: "دMуaし字3へㅕRيウمذц'كmzうوسحち$D-おkрغアjpشㅂбдをㅏه_なeㅣㅈまlvпc/ひPBqf℅)iXりㅊほこыイあض中о漢їやчusA쇼CㄱよOYNのとبwFل4えさ5ㅋґEろtйてㅑмтшgけعQも@ظrIجرіんㄷエW6гdS7UㄹюьTにらсそяめєзقㅐ1ㅔいиㅌyخとㄴえхれнаㅡфbねh%JLそ+#퓨8は호ㅇお&Kквㅜ0اصかいطتた文ZHきわGفあ‰x9ㅁثеおせлoㅓжみزV2nن(こ",
+
+A16: "いみHвIwCうq‰ㅣこイㅕかغめRㅑㅓyXл+せちなP℅ㅇㄴ9ز@id-UDаえれね호юلけSB4سgعのحあрfWて8ияNまфه6'中1xJечろمзсоk(ر퓨いoたaㅏさㅜмはmطとZYєхтьもGしш7ㅐㅈえ2ㄱstدن0йとкوыㅊをnpїやжLуص)おcㅂبKこп$ㄹف/#りثウきTそへґよضAㅔあㄷ字ذM_zㅁらгㅋlhнQقjіエㅌا쇼ظتVお&んFにдOひбe5ほuцيجvكش%わそEㅡrb3文خアお漢",
+
+A17: "ㅌزіجмjєр%イㄹOлe_なわはりうвんあзやvо字аецもㅑㅕ9N8よ-bkHみiRطфادㄱちㅣLY1wㅊнあияK℅を3ね퓨гえnおひいaQ/MжㅏعㅁUلㄷおま'ьчのف7‰ろوJحほ6$EㄴBㅇFمyzこ+hアへせ2たIとㅐкエ文#にこてZ0ウㅔكㅈしrшذえらґص5漢tfыرGCWい호さ)ㅜgqめけmそきтTれXю(بPخo中غ@とcㅓظㅡㅂu&хspضتشおї쇼س4дかثlقVنㅋdxпيйбDсAそSуه",
+
+A18: "あiへねطㅔсㄱشおqはを1нзお%ひuуnzدのZб字عTj&いшえLま37け/кそvえقілгю$فaثE文OㅁPN‰ㅈeй2てWㅡfX'(アYちいㅐфしㅊやㅏうخsвتたこ)9lцIJBص6らغаDчㅣxb퓨ي0وめжبなCか호4hpkظ쇼漢もwよAんにわgㅋㄷとy_℅otяRSجさとрㅂㄹㅌиє8おそウذきdдх5ه中ㅓVQろほㄴHм#GmمエسれضrحイㅑыاUMоزㅇ+Fكпこ-رтㅜりみcあنせㅕьلе@їKґ",
+
+A19: "Aㅋqは&زひiEらسчаT文دおєMㄷㅂصDмцよeїㄴ7ㅔpねحжLてш'0QとYбXせлнuいlきイюхثわ中ちخしgзあおтㅊうсㅓуこ5فえRㅁ(aあり/дыمbおZr퓨йكㅌق+عяغoいさ%иみㅕP漢OUまㄱんه쇼#لN$طnґ℅字C4なアS‰ن1hㅈのㅜجㅡрへبFえгこそれ6vyエに8кもJьウB9x)ろ-ضIㅏㅑرㄹjk2ㅣشوfをHwGㅇKか@ct_пвㅐけذ3ظたфVとايmіdsеWやتめz호そほо",
+
+A20: "ص1ㅓしنї2رуgやおㄹAدknغaりзمгعㅔj'شيZ3لz字خyㅐかiけめはшهこえجウㅜWsнйそпo℅Lб-ㅈ5ㄱせ#дいわwK9%cdتㅣXSイHㅌㅏوエزちひみе(قm@fOよほ0さeрお漢んсTFㅕ‰ㅂыにㅡptう8فまاq_쇼EكおBиてоUحㅇQ&ضVжцьそアатた/ґい$文єхкMJね7れфをㅑس中xRへю호вもlろіㅁとчPㅋなبㄴYCIこGляあㄷbㅊ퓨D4ظr+えuきмNط)ذثあらのhとv6",
+
+A21: "-)Wرфㅌyㄹn$へбidみてとKろのйにوюこめられس℅شC漢5'мpㅔVそa%حzこあxеㅂшㅁ@mґkAsBп_غやкстрㅐныоㄱえزrعうほoㅏь2їهㅑwqㅡRSPضيM0わfㅈ#せなл&بT字O6H3chアよjثцUظFとまおنZけんI4GいㅜаصNちج7я文Qㅓbㄷم中v호さєطاг(E/えeもかз‰уLイلきgおおіエ9хそたكذفはい쇼تد1DㅣねJ8ひقд퓨ㅕиりt+خウをlㅊしuㄴㅇчжXあㅋYв",
+
+A22: "сあわEش(YP0عたㅌさقHrqㅔ쇼nえ'Lりйف&фㅓلおほgя9_Gصه5ظまもウن3хo2AжㄴXتس%Nbきرحyfㅣґこえ1sおてQїそыUとكㅁиちのaけ8IZㅐضこوhіOせいFMそчㅜうvмろ@Sшんへひтはث/いㅑجㅡc漢дк中пم7ㄷVоアㅇzwおなTл호ㄹ6нやK4イらㅏ℅вㅈга#BبㄱCطدjtJخとilエdめれ-з+زㅋmㅂね)бしغую字ㅕかрに$文Dみあذ‰をepㅊRєيよ퓨kеاxьцWu",
+
+A23: "#чyPqとア%jあ$Iر7ㅏشㅌ호2oиحりйW℅р‰このㅂ8u漢)TgاㅁLلや'еvうよれكわ中с1ㅊKц-えعお@dن+まHхiґえث/rіちㄷVну0ひалaㅡい쇼へ&ㅔтяzはфㅑзにь3けذطそыおقxتRيSsㄹوf文ほwbخXضhㅜزmウYоOㄱtイ_eBㅣغUб字6جなかFきEAبてらZ퓨вю5エㅈとをㅐмїこ4سめせおمQهNдGんєたもدظkさшねㅓMcDろそㅋいжصкCあ9lJn(فしㄴみгㅕpпㅇ",
+
+A24: "дJظьㅜسljيDウ8せеたрu漢мBبц퓨іㅁطZY@2れKرєGエاعらbㅂXAнذzㅐиC(Sه%Qあおうخいчきжз文ㄹTa0яㅔアこпまх'їgけض9ええかHめわpㅓбNFEdثehшkMい$31tكㅊそزغとف_ynы字もvりねجみrよなmxはن‰гㅏIсㅌㄴㄱUтق쇼に7ص&ح℅م-そ6لㅋあi호中ㄷしこㅡشфвんVをㅕWてP+ㅣへLоとひㅈйcOлおおуوろ)кoаㅇちґwюRد4やㅑのfほさ5qs/ت#イ",
+
+A25: "Dك)お5へдいイя$なUと%てあひMJㅜcجxсбT/lsきまQせbPثいниさظそ30مشㅋㅐrеط'みь1єIWйкㅓiы@字a&らр#уめもسAلㅁوعうけねzあзㅂ4ذㅌhOpKхгґfちわіLのほ호(7をこвたえㄹXj‰mї文пنYㅣغしخаюدфضgとفبアoにㅊCоاㅈよ퓨おж2-F中qтتقHんZnkyuw+えころحEGNлيはれㅔSч_ㅕRエ9цزtBмㄱㄴそㅏ漢やر℅ш6쇼ㄷりㅇㅑeウه8Vかصdvおㅡ",
+
+A26: "とてثмねそخ)qと0やcㅡذみفb字文RBのwصㅁㄱ7ر-ㅂJ호さґウりP6中@xkнろgsчん$фلеをもтわعTrれhїㅊㅇㄹaアあdㅌQоش9وшjへ1Aせoはえ#ㅈㅐ2ыWイбにжおвиpVㅜよ4まㅏаこたuめSقㅔほあㄴtyKлYひ퓨NM8юXьいzضㄷ%DエكCяlتおزなうجاг漢そㅑIe_nGцOغfطدєUحхZ쇼こ3هㅣmрظс‰けسかㅕLيзしえ'ㅓちiㅋمvき+ук(E&H℅نFらіпд5ب/おいй",
+
+A27: "めxてاX7えIмrьсなJ-m'とWفdのこ5ㄷ3дфイи字0ねіهنちとшにwみطuいtюس퓨ㅐ6あпfشㅑ+4яYzそзоبد/хgOلй)аお中うбFKBM文CґえZ%nعあㅈㅂق2ظさت#гPرجたㅇQかㅣい&цせaغыはيزしれ호そ$євнらウksㄴㅊ쇼уcやї℅@лкصjvGhへ8oخVよ漢eひㄹんy_SذqUろまDNثをحbアおㅕㅁеمчけт‰ㅡكわほㄱ(Aエりㅜ1ㅓㅏおوㅋこきEiㅔRжрplضTLも9Hㅌ",
+
+A28: "яJㅇuذхA호صㅐjTㅣkنуоけв5Qث℅wUMY_れьрせпهкウzt퓨に)りفちشыおGた-WFもIز(‰йlغOшの2رこجこюまцخき+ㄱمм7ㅁґはB/4ねわエ'&ї쇼feほおrう6み1oとさひ文そㅔ8ㅜ@фгсnلおgㅡえㅊへбتسㄷいDなRط#ㅂあVLらㅑبعvظとaえدs9CчSかжحдлㅓеوєEㅕقكんзㅋ3よ$てHやнろтいiضあcZをmаNxㅌㄴㄹ0dbиіPyアh漢ㅈㅏK%qそイXيめا字しp中",
+
+A29: "ㄱれウㅌغF文けYسおذеUзとжㅈね3쇼めlかهоPをмق호こㅏへNろтちうiчとひгعZえにuㅐさx#-уㅁお漢Iほ6eMلі‰/よXناkあQmㅣHTثкㅋCصや퓨ㅜшбD字їもцتdр+иpEみㅊяわ℅cґнаخあوظなgㅂnLKsたمㅓそ7おєйㅡのSز&jيrㄷvBり8まzは9)пo0$ф4q_فط(ㅔAせえدJсて@R1ыㅑحエしa5'رらいWлㅕ%ㅇんh2Oいюイㄴきアضそybft中بこVㄹхكдьجGشвw",
+
+A30: "たمいもおZضしみ4てغوきCO‰qそсお(Aa8MそчめQуFлらGюXоㅣبを1ظفر/JزмかPпㅑtه漢jほㅇsєuㅐшعї$ㄴㅔ@ㅋcTEыаえг%字おpحㅕなU6вrطㅡR-ㅂктDذイoyせvI0あбㄷㅈㅁㅌ5え&نろґmよجe+7ㄱさиfひلцжやYにけ'hSnkれN퓨яезфgнйрこхا쇼lسLxは#アㅜあіウとい호يりちьㄹдうねエHまك2ㅏㅓBへiわzwと9KWこ文قdتbشのخ中د_3ثV)んص℅ㅊ",
+
+A31: "2طдضяㄴいuしчoたあにわ%ымyذш+MPпえI4'はまㅇㅐвDㅓXあん#لせ58や-زYア쇼f/Wтcり3تSунひركCろウгQえもE7hmدおへZJسqжさغخصみうе0ㅌㅜفxйㅂ1iをㄱㅣけb‰eエбめㄹら中tち℅gきجvp(퓨оㅈشjdwこиㅡいيイrAㅕьほzOㅊсHてKよوT_ㅏそなlUかsLюれقGфR漢ظл&Bبこ@نおهعㅁNثFㅋєاㅔ)そم字9a$حㄷnїのрkと호з文хVㅑ6ґцаとおікね",
+
+A32: "нvаїыxめ/ذえгろㅌK)ي3エやㄷあㅇjいら$GCكصіWفイпu5ق9хYㅈغかㅊねуて%と+яさのцㄱ漢زbкTアaчにлسい文ㅑHт0hあなґиㄹはけkへㅋrこ‰oت-P'ㄴжみよحдвJBюQcㅐ字퓨きgdをしㅣфfєثن2طiひㅔخちVاзそбOㅓсsりれも(م#ьDMضLうeI&6ま℅ج4こEmlㅏعわほせ中@ش_たzおんㅕهn쇼وAо호NㅂUtرрㅜظとXدウшwㅡおおSRpそ1йلq7е8yえмㅁFZب",
+
+A33: "れعيbㅁظせおCㅈ8)ㅣHちㅡアUろㅊثfへyحめDقك%ㄴ2هخj'よGwнйエuえюоㅂzとJけvいsжㅇㅜصنにFう4пطも-中елزYхあきTeは퓨яаxMgわ@あi3みㅐPв호こBひㅕسおمㅋغcмた_しبدфlсこhгㄱなそґいEVзㅔцえやтج漢℅んQRتїpそ字кضてaوmおш7+ねdуほNشذOиZI$9kS文rㅌєW5イLの#‰K/さіыウا60Xرдلрч1ㅑをㅏらまفь(nかAㄹ쇼бo&ㅓㄷりとqt",
+
+A34: "عі호nд#え文はㅌ$とうㅑпㅇ퓨イ1جあاをр4ㅐгقW&おyとcみしкنqいそきらثあظいشpIㅕمにねれNㅏdDそへхㅈцCбlエخзжけh2evろф7FسYو/TLJьxн_かPBのㄹоEりㅔ3ح6суل5ㅂOчكmfㅣMبㅓAX(oもغまuеアt0їせrRQㅁたよятjㄷضهa8おطаزや@んこiй漢‰9Zちㅜ字KなㅋbㄱsدG%こㅊㄴウHفわتшwkUл中)さVذы'おめ-єえиㅡґSほgص+юيмرひて℅вz쇼",
+
+A35: "をفuㅁ‰みれم#Ry漢ت+юㅈaصиsг%е中-كㄱ퓨こSり2زx8ほQяやсこJрYdншغいلmI_жㅣㅐエbT쇼おらقOخかضㅊl℅ㅜfлはحش$のgхㅋㅇイひおㄷBとnк字чわ3بめZアWєLにとㅓtうせج1ㅏもыけvㅔねんз6و호きeтなоDґㄹ9AEㅑ&PしCㅕいzoFVあUr7NcвHاろちث5hїرطまㅂбへьえنпXㅡwйkذG文іM4ф0дيㄴそدそよあظ/мiてهおK)qцعㅌ@уаさjウたسえ('p",
+
+A36: "شㅁお7)ㅕ4ㅔえcにほjbه文ねきнфгZجTе%$غїч8Uqㅓ+рghㅣ℅イWYちf&sㅊلرㅋз#1x5Kyуя中цてіفoHれ@حn0ㄹдтまدなmPうwpX/rبㅡжウアظtOㅐ2dへelQりоあみصおыаSひと쇼LㄴもEґㅏㄱiㅇ(ㄷとJこ6ط9шиIزRх'قz_퓨سろそوえB-лثこмい‰ㅌわそьNك3вFおㅂㅑناخかたCんيよAذaめбعkсエ字VкйはضuMらєتGせあしのㅜюや호さD漢いㅈけпvをم",
+
+A37: "ひかTはこ#5アй字ي-ウطь3ㄷねذこоらAのحDpへ9جエنㅌ_ㅊ쇼まそㅏBきにкыうяصせbㅁㄱjわおكEGмب7тUixثoㄴおрзyしえQLあろとلضほuZسхめㅕgز&w文mوㄹ℅いそんقいهイиdMYㅑدsれю호ㅂさv/SіCみPえKг$たعと%с(їおrㅣㅔJV0цغ퓨nㅈфRшaжㅐ+ظてㅓمhґ8@رeHなвあOIубtㅜをанちqけcдлشєkㅇりfXتNlzや6ㅡ漢еп2よW)чㅋも4'F‰1فخ中ا",
+
+A38: "ㅐ_ㅈجめウpзOеそこEPbRいйZTへUث&hحㅑしлuصسYそまنもㅁエضてㄱよك8ちうظせцьWі文CиXえخI5ㅜㅇшمlGきдㄹㅔ1たとчえㅊ@)zєKㅂMわ字ف4ыدv퓨‰gqりقбイزوんア9Dب#наみけyに中ああхのほおїгやсeه℅なSいwひ$ㅡ쇼اれتт(xろ3は-漢оㅋおㅕねعらをґQa6H7ㅓnoとrпкtмвلرjさㅣLBJㅌVюㄷطかㅏk/'FsغжيфおA%ذ호شуcNこfmя+i2р0dㄴ",
+
+A39: "ㄱs7бほㅓあㅣO(Jㅑそ#さ6LねRXGصaWлえgهㄴしㅡYلよ文漢30'ыoNц+めあいثのхьきれからюㄹjㅈت@оіVてEدpeعアㅂせSㅋuMなたиtغ‰けчㅏIخфBтموج&дイмQ2おيذяє-نqبhちуسظうエAkbㅌcおおґ1호lwと$9ж℅ㅐеや_Hこاろも中ㅕрزそнえyvDй쇼ZحxаみKにこdفんгїまشUウс/とmп)ㅇ4り퓨inㅊ字%rквPい5CقطはㅁひTضzㅜをFكзرfわへш8ㅔㄷ",
+
+A40: "なмя9いㄹjجW1た$アع0aحдりしㄱおн漢ㄴろю(ㅁRoхзこб퓨h)زえyشم8へㅈ@cQF'文يسJw/Aんثみめki5رらH#-2е‰жшуはCPغظذоㅓهいㅂьєLせlBㅐエㅏвsのveخzひおちそそف4V7ㅣやあYとをنもにл&Zさصыけわ℅и%гㅑかねцаfMXㅜOきT中あれよイйрnґقㅔてㄷpпqوїまSㅊxㅕ_ا字іrEㅡウкGㅇえㅋほㅌmこبKおUтNфIt+чdう호دلتсكضとuطDb36쇼g",
+
+A41: "Jㅂと$とㄱHuああдをおtㅇч@nj#9いتのMыمIr7B漢وzんاfや5ye(CشصひцTㅏмアрهбわ61VけれґخㅈㅋめKsaもよPらف2ج_oنD호жㅔكほ03т字にіㄹ8юй/сFㅜяおSث퓨лXNEеイいㅁㄴしおㅓзqりきQへエ中diさせㅌ쇼%vpㅐظذيえкウ&ضたlل4دزبkقZ文є)Wうпнرغこxㅑحそس-hOcоㅊみьаまгфgхmїそちはعころwиねㅡ℅A+えてYなbLRуㄷかGUшط'ㅕㅣв‰",
+
+A42: "بчㅈは쇼юㅕえ/字ろقQиㅓخзこㄷウうجт4いqんYZتやきtにزفvりнㅜрrそEсطjㅐXعみغとпJk0шㄴHmي℅てAشねV9бエさOたд‰نR호xмpㄹ87TхкدسNお&@sлㅡなせlеれもіおثㅣえرєu2퓨ظㅇㅊへكfyo6حIおمصW%ほを3こㅁضnو(いちzU'оاMcbй-я#しC)文dуFвのжїㅑイけلらあまB漢よьㅏめa+ひアцwSわKあㅔgهذGとかㅌ_ㄱiL15ґ中Dㅋhそ$ㅂPгыфeа",
+
+A43: "たدこ@_jめoغLм7ت+き℅аㅓеشこذюkvㄹよㅔㅜIMучжㅡやєㄱыبUㅐをпPほお‰えれ字みあzرdせㅊㄴcXґㅋtりCظらおسのHGلطFзrсかに1шわمyхZpTяひu中RてwSوろhちز漢エ92んㅈضكцbㅂQa3عgねはEصд#ウ8퓨けえйقNqDнㅌрBAYгㅕいあxбㅏ/вїなl호фiイл$しまもтث쇼ㅣさиおとㄷㅑVح0ь'いينJоnف5кそへ&fOㅁmㅇsと)e文هKう6Wア(خそ-جا4і%",
+
+A44: "おґтㅋضおG$SازYㅑㅊ8ыㅕتzえط字せكエ4しouوnはم7)yنㅌ쇼иFкろんrえvあVчR3ウㅏжظたひدM'сذقLJ‰かㅔUه文dKQり#pねㅐеPg%цㅣよ호ㄷ1いてرخ中うやㅜのفі+わもшдみ/єq_xTлhwشㄴいصнзㄹ漢ьほれD℅бㅇпこbгвイNfアхCそこلjZとlc-Bسら@ㅓをとkめغثH퓨aجWㅂя&5фعIちаㄱへにさру(حㅡまき9EйㅈبOоiおmAあيㅁ6sな0Xмそけюte2ї",
+
+A45: "ㅡN8ろє‰JذхㅁкlにめㄱせちFsよれVشGこㅑㅋㅊㄹKㅈxい-し6nUй1てїgわAㅐMثі#エもりfpuвひ0zбоえおあな&漢tжY호يш中いSзцOпلBدRґаへحEاьあきLrおㄷivをز+ظл2さ_юрㅔHع$4м3qそ('W5дXたяかеw文eغDほфのуㄴكخまうm7らとرㅣおけиyчこやはㅓهイтㅜتف℅وえウそ@퓨dんとIгㅂقнPطCkhaㅕصㅌ/)سمcсы9ㅇ%j字Tج쇼みZQㅏنねoضアbب",
+
+A46: "な%(ㅇкhlGよزㅐفウبMوrbねwけqㅊґй9ㅡч中文هれїن_をㅈдㅣㅌㄷㅜвえмHまXغ$Fㅏㄹشイㅔりقㅓ)いらしほんあYkOのعло0せとわfكиAхㄴちدф8に5تoю퓨‰طلثㅕy2ㅂзT3漢みかaا/UцあуJuえおい1N쇼سсjもこяnvそ+zLpрDظرこxや@і호аめذアж7'єьろmBг字KыㄱCひdحおてうさへおエтはtㅑеي#PVمجпたㅁضとб&gSeшㅋ4i6нIきWcQEZخR℅صsそ-",
+
+A47: "エطtGイOHлきbفрfRてشф5ㅕعyبдDひsㅂdоㅇ호ㅓхアh漢وNえjєら+3めкいkсㅐㅑدalxU文PはoجよتuTへいهصそㅁаにKكもX#‰Cقみり쇼なㄴذあ7ㅌnEыㅊضえюظQしثねけжㅜろтW℅wZمㄷвуおㅔ/&g1LをйㅣpI4ا0бBウґこせわㅡん9езحلまіريㄹSm(غㅋの%ㅏほнпうنr@v字iш8たと'ьмї26иزqれさFあ-おcMㅈかち퓨Vと)Yцeя中خسそやчこ_ㄱAгz$Jお",
+
+A48: "イ0w_호tcйQapr퓨vか5Cزш漢ㅇ)そをظ/هфと3も쇼ㅊㅓjقㅕاбそيе4こغяыحGB$خうKعпbㅣ中тnsTxウуyfきiشㅐفдїしねuذсおやUdрにج-ط字Zґㅡㅔqлえらгほ'ювりo1@нㅁRへPㅜあいめ8お2иせㅏてSرYаد+зFけeん&ひㅌよzはあJNま%Mこなох‰mえたLアI#9XgصOبkHьتさوжい℅ㅑㄹWおцㄷمثエEضلみhㄴмAنєкろとれ7のㄱ6VㅋكちㅈіㅂчわD(lس文",
+
+A49: "をなせ3лذ8uа字た5ㅓこはㄴпмㅡそHNKzLб漢Tねよhهㅑьれもض@Uまثㅜ℅яlفaґMきえكiㅋのсて_nнめمv2わいزこ호エ퓨やrㅕりㅔвあطㄱdおحそїらAXイ文уqзOк)4Gmقㅌрgおbㅂا中7BغㅁZ&ت/んVjへにkさжか$Y-ちpظ'yصDйجみR‰ひ+оиeウтوєしч%نアرほIけQsおFфلюدعشц(ㅏCxшب1いEسcㅣㅈخoろと#PS60うдwㅊㄷえ쇼ㅇ9JيWあfыіtехгとㄹㅐ",
+
+A50: "りoおTまちはضにaんفのقよрпcOㄹy쇼جي漢طثж/しおuLфмї$тとEw호ㄱほAせㅕه)تыきلnたغ_8ㅁаXح4YをGSґ-іsなめ中цPれㅣйгかおمx'あさVみアㄷ퓨gش+Ipеひもس5яصウそخвㅡбjсQ@دك9zعкنkろMㅇこшㅏ0оdдへf#Nㅌㅜr3UZ1KBㅔWてذ6D7‰えє&Hлиhьie℅%ㅐюرظqчуらㄴvхうㅋ(зJわそزエねこㅓあوبCやいえ文イい2ㅂけmtㅑاbнF字lㅊとㅈR",
+
+A51: "طえいяuє1ZをبثSты퓨вにfUㅔ쇼ㅕBㄷьo9حㅊ3жㄱあ/OM%zlhنㅐц‰ウдPتشYn호уろㅂp(ійLTㅜиㅌとㅋ5QㅁエCهхㅇよんدqмrのおㅈしخ8お2_Wي'KزVsذたなㅡまфり@ю)Aみこ6лзね$гغкнX文чもかрلbaضgちقعIyやら字はあسґR℅Nصcおظ漢#апEшㅏеひv7ㄹめ4jiجtوe-てㅣHㄴイFへうそとсفえ+اDk&їㅑxけdれmكほمоさいわرこ0wせきGアJ中ㅓбそ",
+
+A52: "5eخ71文فґZфسpㅂєhㅔвさTなjضيへй#)B'بdㅁ8とه漢Rsあцねعㅣに_らㅇ字ㅡIьсㅋㅓظ℅бاMQتгgrпうك%Nㄴㅕшغоtそ-FGせやEあ9yㄹчحقmнㅊりv/яウVのدこえرおіんい@ろこきLкрしㅐزдلかDaみ3わてJアf(т퓨WqはnX+とуюイمㅏطㅜちouشエыиほлHP0$cけを6аい쇼ㅈ‰中ㅑおC호もよOجiوwそ&おひذlмkㄷめUえれzеbхYまжAنثїたㄱ4KSxصзㅌ2",
+
+A53: "い漢おそウㄴ‰рoㅈWJM)gcхлㅔめZQTIмㅑخUиr&جгنえمеظيжろثPxяاこ2なへавㅓㄷп'あkґよりそもおはおにㄱоuqضㅌをtбعㄹزbت쇼بㅐかsAقみmY%X/Kとyㅏdفひf#中字ыl1らGRあ호ㅡ$wдSnちてけص9℅まюきんㅁzуpї0jشкDイねエうㅊ@せ35Nこ8ه+йしiとaوEєذわさ-(зH6퓨لكسㅜطいたㅂтㅕرFьدㅣغч7і_えㅇحLやの文B4vCれфцほOVhшㅋeснア",
+
+A54: "nюMgたに9wえьدㄷBص@おцрㅕやㅏq%FfNWهSقをبイ쇼а℅bㅡl'ていㅔافㅈわسمчエQㅐоеغ퓨пYхіあKм56+AそㅓjちmطIもsVґ$дㄹㅣуCuさ0xㅋkらcね字-y文こнلtRか(яㅊおはPذろ3ㅑO호hجتكあoтXиㅂ4れよとウвうなㄴへiظとのaけㅜJㅇыまUZзし7きほيгوㅁ漢&eضそえんєア/ш中Tлvбсㄱش1кنpحїめر2rおせ_ひعHخй)زdzثG‰8EㅌDいфこりжLみ#",
+
+A55: "エMAなرعPえ℅rх0ウFа+7гпにyY_вшgまLいظеc文8оыу4nㅜれكㅋvこ2わюおсeب漢иوㅕاьцけتえقㅣㅓxк-Sخ6めهhきㅂうちє쇼ㅇ9#ㅈoㅏHㅑضQiそRWkㄴアX5ثDlغせこK호sбIpねりUㅌw&ч(ذدنbほㄹіtBㅊひл'ㅡㅐTسㄷ3u)їOдمطVشфもあたをзらحEあてтしjへさおلґCかнとㅁんزي‰そмや字جяいйZж/およfイ中みG퓨ف%ㄱとのd$1صрaろ@NはqJzㅔm",
+
+A56: "+лけاعIV文ねuエ0/юцに℅FHそㅜzق$TしL9чたسㅡдㅔJOй호ろ漢ㄹатウoجとqㄴ7w#kvdㅊSㅕрㅋыشfN‰пيخ_sثㅏ1aبكZеوㅓjїنضなفієE&P')そ4わあAて(ㄱ2bアんмこкあyзяお5GせㅇMlㅌWQtهいфgㅂさeBriよرおCはㅐRمвhnめとほбㅑうㄷかcへгدおьmط-らい6もUれやひحえذㅈㅁиきزصイの쇼ظلغえуをㅣшxま%с8こоXDみ3K字りж中нتґхち퓨@pY",
+
+A57: "そW쇼けAjظйそよج漢بكo_とㅂ9をとتخLyоKزZㅁر'Mдも4а%zBدまiㅈяنxpحりんㄱґいاS8ذ#fkQ퓨UYuسほ7アㅋіこうلㅔrыb3ㅇцнひغへいあsあشこ℅れRGв)ㅏєлはтфaمث@え‰エ5Dにな&وи字らшえVかгїmEㅑOw6ㄷhPеصㅐ+中IわьㄴрقㅜTㄹのJき(ウсHねF호cお2طㅕたおпNهу/ع0ち-ㅌㅓおt1しCeやみбчжXضvnglيкめхさ文ㅡせろ$イюㅣてзqмㅊفd",
+
+A58: "VnлxㅂRу4とضそюㅐcㄹqたけjㅓтいLれpC1ьな+中Nのち0UGをえdlとйえfطفEㅏذㅕخㅑuㅡeغحهろへنDقおめدєみыㅋㅁㅔ8はㅌM_رひسміaきSㅜウاAㄷ漢t2Jхلгsо&$rあ'ねイこyкIㅇわり字вPс퓨v호ㅣбزアي3wよま#bOWㅈㄴや文صz/쇼こㄱظнцH6kYафんて@Xう7QїしいmほZ%чяK5iиgに℅وせكらさеㅊかoثもш(おそتج)пBエب9зشمґعおжFр‰hあдT-",
+
+A59: "もFsアウ_вسك%г文Cみк퓨#ㅡтしのㅔSえ/ひ@おきkせpnжBㅂㄹثXєяㅕWgよص(IねㄴYㅣとりあちqلсюんorㅋضоذ-yㄱえбほP9tエbьcjجL漢Kdмいцغaыиあiظイfhㅈこmㅏ$z中こVеけそO6تUїまeわxそㅇE호зㅑ‰чwlRと쇼字てهおおنㅌш2をمJいuشі4'دDZطろп5وらうMㄷ)фхはめднやQح8ㅐرNvAHрかた℅ㅜへTف0قGу1л7بґれا&ㅓйにさز3عخيㅁㅊ+аな",
+
+A60: "らAやrFхыmRьط0えв$ㅋいろй‰іرتけㅊたㅐ中рtせчㄴあا'えخ文MㅈsㅁU℅قㄹㅇエにX8oضきアウيґцとдかそiсㅔSмㅣжへل쇼HزawKㅕなㅏgㄷり-3فqبhfyش호jمをれBнㅓدكEまO2(кعおذифㅂねنよї7пおl1TうбNイجcしひ字+V@とI)漢さеLоおほいязめそPdтㄱ9Cun5pあのGу%&ثzDهл퓨صてㅡeもこح4QこんJظちみ/ㅌغYаxєس6ZWわb#гはوk_шvюㅜㅑ",
+
+A61: "퓨あشイعбといてにfصかaزضU4exVгzえطv#hلخㅈJ‰فlㄱrみMちもnろ92Iこと%さLㅌdї5Bфнسйюㄷ文き8よبуㄴжتひiㅇсиㅕㅂثنめりれ$漢ㅐоK)うG0けpエㅣYkґзيした/чjwいアهのظおіね中字CєほвшPRㅑb-FяmтجNcEこqoㅊ'ㅜSцхらمえاWHはмな(пTQ+د7ерtウغ_Dそんㅁおuへكьㅡやㄹ℅3を&gق6호1حㅏыわせまあsㅓакдذAر@そлXZㅔوㅋ쇼おyO",
+
+A62: "شG&PㅑㅈほおㅕわらZはыبقうظzDあеض#ㅇ℅R2け文ㅊخFм8юتфفみوrьكтهやちmуWحU6аоかい5дきpчㄹえBпㅐイNウたOYбㅋі07しيAاておㅏㄱєعあM字цcIv$jغㅡこш94fTめجegs-アさのCсtiㅜкせEそHを%йん+퓨م1K@زя/ㅓnなLгとまよㅁ'こвж쇼そlط(エї_udaㅂ漢VQلもろにq3ثㅔㅣkㅌ‰へ中xذれhسрyいنJнoґзwおりbхرひи호ㄷصねえлدㄴSと)X",
+
+A63: "wわ‰ж'jいرㅑよ쇼ظ8あqあسㅂㅊアنс#aきおدAбなя6おは字QれчちM-(おhか&めにxろоVnvYIや0وこzGたさхㅋTㅕذاyㅣㄴcفعрґїu2قW4ㅓiPаㅏطبNそіmoSضXもてDとしㅜのせみんねجウHうけㅇJlфZ_Eحغい%в@لpㅔえe漢文ほ中ㅡе퓨ز5дㅁخ$KR호مFг℅ら+こrbLㅌشfпصUулㄷهとнㄹを1dьيkBыцтOишりgм9ثまt3)イ/تsそюへえCзкєㅈㅐ7كㄱひйエ",
+
+A64: "иはаع文ygضдㄴ호еしشBHもثㅇتmㅔl+чZыㄹかWㅜخのㅂㄷالㅕて6りまたこK&3ㅌウпط_X9мяLFميとظнをよhغめiقтへㅁㅓкґC‰こ/ص(そとUюwe5uㅣk8г)QTшㅋі'#0Yу漢えわㅡфzoSd퓨なجnさアхDせえьおєفIذ7お4RjtMㅑ℅ちGxنVрあㅐcㅈbㅊйva$れح%O2ろ1sцrあз-きqزpひоにエらんوбいみやهв@лدAう中жE쇼字сسイїいほكPرそfJㅏبおㄱねNけ",
+
+A65: "ㅓлまعZJに+сは%えMbюдNきуدㅋdи8ق1'うG&ウoろз/Rشفㄹㄴьㅏبvわんㅑпcㅣس2хфضそVґかhㄱなж字ねyこб-といえHوl쇼ت#Aおmiひもエكثㅁp6の3ا‰り)sれч(ㅂKFYけやと中ㅔㅐцйfج퓨ㅜغQ4ㅌちnSkさㅈㅇ漢мuzيしذшнطEіCqحㅕめ文Urたtгنaصㅡこgㄷ7wあておあт_Deя@аおزر5そ호ыjо9WєOアxへظXらをいрمهلほせ℅еTвよкL0Iみخ$ㅊBїPイ",
+
+A66: "りれю中HGіشㅕє+xえㄷSоаضrурエIㅊث5おㅇاひ_tф'c퓨Mし호س)8ㅓとшفPさж4て#صUㅡбхغほ7め1EkいjもنきこmVとїمbこ‰ねはへㅐらґеㅋよZсㅏち@JجㅁزㅌкyهeㅔたイяhгそQحiK2قf쇼おㄴけD℅aCпsd9いظدwあうي-كにиをتйんvz文quBoまвやWせおь630字ウㅣㅑpлそыFعかلروXبのNㄱтطTYア&漢R/ㅈLмㅜ(gخㅂえдOみわあAnl$ろذцなз%чнㄹ",
+
+A67: "ちり$قшuよOㅇのあwUしアまㅋYمエлそ字ㅈіتらїف中بьにことEyрみMてґ7ㅁيмKもL'いㅔхな&aiCстдرPほ_かcهmjlㄷㅜㅣейZウおxpкㄹうえ쇼жذحね文)NQطسыひㅐظD@qп퓨G4ㅕはAиㄴあ8نイせєめ1んㅓфثدجろRお/Iれㅊㅌh9v‰へFخVおzksoSfH6をㅂ5gや3ㄱга℅звяJلeاغdбたn0عわきけいBоそ호زrTضえشㅑとوцさ-こюXكbчㅡWt#ص2н漢у+(%ㅏ",
+
+A68: "yGみㄹVせшあ6な‰いしKㅏثひfx호M@$TذちさねsBيvよあXD)WصてцJLمрアخㄷ_字んㅕㄴسdイشلьこєп-فそうضㅜбоbㅊлㅡはgE文ㅈえ퓨ウكmらQن0ظまtقやт3とそoれeиAIも/쇼ї中яівZおkにдほ'%юiغのN1YS#2たRㅁㅌ+めjこйりмrnжPzqㅇحㅂرㅓهчط4аㄱхㅣいとろかㅋ漢енおсへزpㅔFґエуOH7гwわa℅з8&ы9اおدкけきфU5Clㅐع(بتcえhをوجuㅑ",
+
+A69: "цшㅜолمC3ういイхdもとそ7ちصو(とxのSQ_جきhおひそ#طまㅐたtثиおやをع字みよㅈр&в漢ч/かzدґыjTㅁG‰كにHsㅓbزㅡїذさp℅فwEєm)6いㅣi9わVغд文سㄷ@ㄴфXзてаㄹoяㅔね-gنرтほあс호бخ$кアこIなえyはFせめあشㅂل4e0PRقれこㅊL中r8і%りㅌけfOq1uㅏAيa퓨N+ㄱn2쇼ح'юkмуY5MしvDウㅋへんاおتエㅕнJظжеهضWlcZㅇBйㅑпえьろKгUらب",
+
+A70: "جاo6りおさwبгґс@中#ㅇ퓨P%хan‰C(هذ)かلの&ZとжرHㅏほظㄹطшаいdアьغث호ㅕUqmエїㅣgنれ℅$めlزю7YQк30мあMㅈєش쇼jわいうㅡeㅐدたvE/нтчT29せقと1صسもてRんLㄱし漢ㅊあおこBまえعㄴпиsㄷвウち4AhpㅋمcはNVよㅁ'そyحけFひu文ㅌكі_みらbتそI字ыKWفイkをㅑtеخzOr-уJへфوきлにيйㅜi8ろねㅔбおSцこXやGえрㅓなضз+оядDfx5ㅂ",
+
+A71: "_はRدtAEいJ℅OkㅣI퓨Hنめ1Wきo漢‰apTbضьфいこえ0оz6сеصㄹあхg)や3あрw'G字おفйнそこаقس@تظlしおㅓ쇼よiزثイほㅂらLшのみろれشєㅁせغㅇアまчㅔвㅈ文جاを(зうهлnそてyㄴㄷりqбuもへحكмㅑп#けㅋ/وㅕんذUYиjдرエ8لبㅊおQvцfさ5$えㅏdيVㄱ%Pm79ㅐひC&خㅜねгsїたか+SіxыKMㅡcㅌXк2ґ中とFなとمZжطBDeюr4-яNわhにちтع호уウ",
+
+A72: "خよاまㅇذ)エにあ@いظわبk3ㄷشмㄱPㄹsg(يtJSㅕㅣ'쇼wろKのLㅔєㄴгㅁжかарㅈqなحmきнثhやzㅏь9rそㅜおi+ㅐ#Iеさمう-шえлれたひこuQRらとおb8ㅓхアуغ‰5lこفE6иY퓨عeنбめ字njおXウほ中4сとصهUdんyыFねйへ0けVxしそіцㅂ7℅はкイر%もあюNo漢ちض2みいDAせ1aدHتجㅌ_вTㅋ$قBزMфґりpGп호سдㅑC&cязWلوvえطOて/ㅡをчfㅊك文їтоZ",
+
+A73: "さㅈю9dlيきㅑхりчنZれїeエちいsn-D7こOㅣبQسяW1えねоㅊうのアa3حよHてипPгせんرлсとц℅そغㄷiおEgjذㅁにIwyمzSшrほقをptجは/خな0ㅜCuㅕتえたひBㅡ8bわ中е5kбґらжㅐLйMおㄹ文عыصRнやc+쇼з2)м호ウTтثAفشрhみかкqへも$Gろxдز字おfㅇㅓそ@漢%イけу(6Nv‰ㅏㅋといلKضكㅂدYしфіJаㄱه퓨あвㄴوめまє&_あㅌV4oㅔ#طm'FUاظこьX",
+
+A74: "ㅏ#شرわはんJкこたい+xфQろにоzjдстыう文まعと호りيX5ضسㅡOこBおpㄱзїnそ4え)t(rWほхذ-hYら$ا/7فنSRحㄷyㅕqlяلえчнㅁ1ظю中_あгさت漢ㅊвけひ9NزGやㅈeجちwF&めdраイㅇあدれغ6ZصㅐKLねпそてьoіCлITm@エㅣㅜуいمfUقabطㅔkكㅂをеし2ㅌцiの‰و'お字ㅑHєきcㄴ%ウه℅жMなsuиよA쇼ㄹ3もDґみймшбEثおへPせか8ㅋخVgと퓨بㅓ0vア",
+
+A75: "のしㅕوEそそ7おきㅂLイS℅uيおl#JhㅏلMねظoおたㄱt(их1ыزسлвX-ㄴzりO9文호とkفを+ㄷㅓ4ㅑشєсخ0Hfшcなyほちㅇㅣ)jみs퓨кとغわтㅐюa2pت3اكمжいあさрう字めFд‰دяんかNбいえRGにエK$رウよZфㅔㅁث中мн8جїDや@ㄹа&ذBㅈзґ%уьqгQㅊطこvまら_はйㅜてgPdrبㅌれへ쇼こひе/صWiTwUえ5も6eYоnACろせアㅡ'xIنあцعقчضهb漢іmけحVпㅋ",
+
+A76: "ع호-ㄴыqжㅏみし7حえEねتїكCбyجㅐX中м0PおQㅇ56kさㅁBㅔえu8おцりㅓTエبㅂاらちせめwとiにa)きてとㄱZрうطтозこوへдア4UいhflثигNш_xRіشصよrMظ@もW漢ㄹzD‰لепл℅يس(яㅌهㅋcS文HdFнほウいIevな3%уVزJたхаけєюjわKㅈخ#ㅑmひあґ1вoкg2そあ쇼Oفか'YをㅕまのpAчLtغ/ㄷ+ろGфやイb9は字s&れرㅊсㅡقь$퓨んおذㅣnそこنйدㅜضم",
+
+A77: "fちか호んわر文KPC%ьيمほوмнز$エр6いخㄱdアㅜяu中qなろ7تlاL_Iお)pقiR퓨Yب30h字-бらoえыㅑㅓtدみㄹはشㅇ‰لG쇼cиㅋvкめイс漢nшжaصxへせ2ㅣчwJеそظ9ウпDTїойr4いれさаㄴSX@もлまりض/ㅏbNOجдよ&Fз(きsたm+уkgфてやفしZあㅡهㅌㅊeをHVAえㅐгMюこEعこね'ㅈうㅕQغвіㅁのхثとㄷけWあ#おy1ひそ℅тzєذㅔґنjとおU5كцㅂحسطにB8",
+
+A78: "اきKみZкخほそれذPㅜюмㅁ&хіねいH_ㅐتおㄹбお82ㅑaY호3نحㅔق%цんRち$QtظomとうJ9بㅂ1ㅊicыㄴにWصlسгわчпEо'えفيвNpnなMяㅏضv‰rIUㅌمのこえㅡ0ㅇしアウAشqめfсйز쇼は퓨ج5とイ-لへㅋG/ط漢そ6OCаりよやع)ひbkxغㄷBи中Tjswを#зґエSい7おgнVршたлあㅕDかてhㅣせ(あこdدろтك℅ㅓけuㄱyه@L4уFeфє+さㅈд字وثьرеїもXжまz文ら",
+
+A79: "Fもㅏm8ح中оとXلйそвDえㅋイ漢cgьㅔфх7وsEنقㅜおW6nرضㄴわこ9いてㄷ(oеい℅Mшろrд文よuجiおUqYыvうظたき$んzㅣذ@-はصи+OمтJю'xそіخ‰зㅑyيفみㅌ4Tмكけбpㅐアл#عаㅇせエهㅈ%aط5wあねدش_호10ㅓㅊсسほبㅂbのZр3とGㄱNをjغV퓨BHらє2れчめLуQりしウあlتeCRпI쇼kSاн&цtえкяかKㄹгزhfжㅁさおにまひ字ґїAㅕdやPこへث)/なㅡち",
+
+A80: "エїんたU6Rひ_$ねにfZ中@ㄷqYㅇعуiしちとNr#dخAめ‰h4جиفCжز/м쇼kㅣ3з75هいIضt2ش-もㅡثг0نрتمgфをoイFこцㅜсغбㅐаxп호やкyこPみدوOうіそHㅋpろдㅔй文℅おط(さㅁEjwㅈلاسおわまはKصなsそえيいGり&лてbєبよウحSVX'mQقかれへтc9LㄹあхzuㅌшBоㅂьㅑㅊa漢けらあJv1えнذكWDчせアвeとرのеTюㅕㄴほ字)ㅏ8ыきnґ퓨Mظお%яlㅓ+ㄱ",
+
+
+
+};
+const descriptors = {
+"A": {matrix:"A9", shift: 93},
+"B": {matrix:"A16", shift: 102},
+"C": {matrix:"A65", shift: 65},
+"D": {matrix:"A55", shift: 25},
+"E": {matrix:"A66", shift: 6},
+"F": {matrix:"A63", shift: 110},
+"G": {matrix:"A78", shift: 120},
+"H": {matrix:"A77", shift: 81},
+"I": {matrix:"A30", shift: 129},
+"J": {matrix:"A73", shift: 5},
+"K": {matrix:"A53", shift: 28},
+"L": {matrix:"A71", shift: 93},
+"M": {matrix:"A71", shift: 212},
+"N": {matrix:"A6", shift: 128},
+"O": {matrix:"A39", shift: 208},
+"P": {matrix:"A76", shift: 195},
+"Q": {matrix:"A76", shift: 176},
+"R": {matrix:"A78", shift: 102},
+"S": {matrix:"A8", shift: 159},
+"T": {matrix:"A39", shift: 83},
+"U": {matrix:"A27", shift: 28},
+"V": {matrix:"A31", shift: 45},
+"W": {matrix:"A12", shift: 19},
+"X": {matrix:"A1", shift: 139},
+"Y": {matrix:"A63", shift: 146},
+"Z": {matrix:"A19", shift: 166},
+"a": {matrix:"A58", shift: 96},
+"b": {matrix:"A43", shift: 16},
+"c": {matrix:"A7", shift: 32},
+"d": {matrix:"A51", shift: 87},
+"e": {matrix:"A75", shift: 41},
+"f": {matrix:"A59", shift: 86},
+"g": {matrix:"A22", shift: 80},
+"h": {matrix:"A49", shift: 109},
+"i": {matrix:"A73", shift: 194},
+"j": {matrix:"A46", shift: 126},
+"k": {matrix:"A60", shift: 35},
+"l": {matrix:"A29", shift: 71},
+"m": {matrix:"A61", shift: 77},
+"n": {matrix:"A23", shift: 78},
+"o": {matrix:"A66", shift: 87},
+"p": {matrix:"A42", shift: 26},
+"q": {matrix:"A65", shift: 107},
+"r": {matrix:"A60", shift: 18},
+"s": {matrix:"A17", shift: 142},
+"t": {matrix:"A31", shift: 59},
+"u": {matrix:"A18", shift: 164},
+"v": {matrix:"A31", shift: 109},
+"w": {matrix:"A18", shift: 95},
+"x": {matrix:"A76", shift: 28},
+"y": {matrix:"A40", shift: 111},
+"z": {matrix:"A66", shift: 92},
+"0": {matrix:"A71", shift: 33},
+"1": {matrix:"A59", shift: 23},
+"2": {matrix:"A73", shift: 39},
+"3": {matrix:"A27", shift: 99},
+"4": {matrix:"A23", shift: 202},
+"5": {matrix:"A38", shift: 128},
+"6": {matrix:"A28", shift: 87},
+"7": {matrix:"A46", shift: 40},
+"8": {matrix:"A10", shift: 77},
+"9": {matrix:"A58", shift: 141},
+"あ": {matrix:"A80", shift: 142},
+"い": {matrix:"A73", shift: 160},
+"う": {matrix:"A11", shift: 50},
+"え": {matrix:"A38", shift: 196},
+"お": {matrix:"A18", shift: 64},
+"ア": {matrix:"A7", shift: 195},
+"イ": {matrix:"A5", shift: 211},
+"ウ": {matrix:"A54", shift: 207},
+"エ": {matrix:"A60", shift: 25},
+"漢": {matrix:"A46", shift: 119},
+"字": {matrix:"A73", shift: 36},
+"中": {matrix:"A72", shift: 38},
+"文": {matrix:"A50", shift: 88},
+"ا": {matrix:"A58", shift: 132},
+"ب": {matrix:"A29", shift: 56},
+"ت": {matrix:"A55", shift: 136},
+"ث": {matrix:"A26", shift: 41},
+"ج": {matrix:"A33", shift: 157},
+"ح": {matrix:"A50", shift: 166},
+"خ": {matrix:"A78", shift: 42},
+"د": {matrix:"A1", shift: 44},
+"ذ": {matrix:"A1", shift: 199},
+"ر": {matrix:"A64", shift: 76},
+"ز": {matrix:"A47", shift: 182},
+"س": {matrix:"A50", shift: 170},
+"ش": {matrix:"A71", shift: 93},
+"ص": {matrix:"A37", shift: 44},
+"ض": {matrix:"A76", shift: 13},
+"ط": {matrix:"A71", shift: 60},
+"ظ": {matrix:"A68", shift: 208},
+"ع": {matrix:"A74", shift: 74},
+"غ": {matrix:"A26", shift: 135},
+"ف": {matrix:"A70", shift: 171},
+"ق": {matrix:"A62", shift: 25},
+"ك": {matrix:"A39", shift: 73},
+"ل": {matrix:"A50", shift: 164},
+"م": {matrix:"A41", shift: 149},
+"ن": {matrix:"A31", shift: 168},
+"ه": {matrix:"A60", shift: 173},
+"و": {matrix:"A62", shift: 157},
+"ي": {matrix:"A6", shift: 68},
+"+": {matrix:"A18", shift: 94},
+"(": {matrix:"A26", shift: 206},
+")": {matrix:"A72", shift: 28},
+"-": {matrix:"A23", shift: 193},
+"&": {matrix:"A76", shift: 47},
+"_": {matrix:"A78", shift: 73},
+"$": {matrix:"A79", shift: 200},
+"#": {matrix:"A80", shift: 146},
+"@": {matrix:"A47", shift: 207},
+"/": {matrix:"A11", shift: 46},
+"%": {matrix:"A27", shift: 180},
+"‰": {matrix:"A64", shift: 30},
+"℅": {matrix:"A4", shift: 111},
+"й": {matrix:"A1", shift: 13},
+"ц": {matrix:"A70", shift: 32},
+"у": {matrix:"A13", shift: 154},
+"к": {matrix:"A27", shift: 21},
+"е": {matrix:"A14", shift: 71},
+"н": {matrix:"A2", shift: 14},
+"г": {matrix:"A71", shift: 34},
+"ш": {matrix:"A73", shift: 48},
+"ы": {matrix:"A63", shift: 127},
+"з": {matrix:"A39", shift: 3},
+"х": {matrix:"A11", shift: 34},
+"ї": {matrix:"A37", shift: 6},
+"ф": {matrix:"A6", shift: 134},
+"і": {matrix:"A27", shift: 131},
+"в": {matrix:"A20", shift: 103},
+"а": {matrix:"A58", shift: 122},
+"п": {matrix:"A67", shift: 62},
+"р": {matrix:"A28", shift: 59},
+"о": {matrix:"A50", shift: 149},
+"л": {matrix:"A27", shift: 207},
+"д": {matrix:"A31", shift: 172},
+"ж": {matrix:"A59", shift: 46},
+"є": {matrix:"A34", shift: 3},
+"'": {matrix:"A80", shift: 61},
+"я": {matrix:"A56", shift: 181},
+"ч": {matrix:"A29", shift: 30},
+"с": {matrix:"A61", shift: 74},
+"м": {matrix:"A16", shift: 85},
+"и": {matrix:"A57", shift: 20},
+"т": {matrix:"A73", shift: 68},
+"ь": {matrix:"A37", shift: 180},
+"б": {matrix:"A60", shift: 111},
+"ю": {matrix:"A5", shift: 145},
+"ґ": {matrix:"A63", shift: 173},
+"わ": {matrix:"A48", shift: 145},
+"ら": {matrix:"A43", shift: 210},
+"や": {matrix:"A46", shift: 102},
+"ま": {matrix:"A57", shift: 5},
+"は": {matrix:"A60", shift: 16},
+"な": {matrix:"A19", shift: 147},
+"た": {matrix:"A2", shift: 16},
+"さ": {matrix:"A55", shift: 141},
+"か": {matrix:"A15", shift: 122},
+"を": {matrix:"A48", shift: 129},
+"り": {matrix:"A2", shift: 150},
+"み": {matrix:"A15", shift: 91},
+"ひ": {matrix:"A5", shift: 99},
+"に": {matrix:"A9", shift: 95},
+"ち": {matrix:"A76", shift: 198},
+"し": {matrix:"A42", shift: 39},
+"き": {matrix:"A40", shift: 91},
+"ん": {matrix:"A50", shift: 12},
+"こ": {matrix:"A59", shift: 109},
+"そ": {matrix:"A6", shift: 120},
+"れ": {matrix:"A10", shift: 54},
+"め": {matrix:"A64", shift: 176},
+"へ": {matrix:"A23", shift: 60},
+"ね": {matrix:"A62", shift: 50},
+"て": {matrix:"A2", shift: 14},
+"せ": {matrix:"A69", shift: 8},
+"け": {matrix:"A3", shift: 137},
+"ろ": {matrix:"A3", shift: 143},
+"よ": {matrix:"A40", shift: 117},
+"も": {matrix:"A40", shift: 113},
+"ほ": {matrix:"A6", shift: 188},
+"の": {matrix:"A28", shift: 76},
+"と": {matrix:"A21", shift: 30},
+"ㅂ": {matrix:"A65", shift: 81},
+"ㅈ": {matrix:"A11", shift: 119},
+"ㄷ": {matrix:"A51", shift: 16},
+"ㄱ": {matrix:"A33", shift: 68},
+"쇼": {matrix:"A7", shift: 32},
+"ㅕ": {matrix:"A71", shift: 47},
+"ㅑ": {matrix:"A42", shift: 121},
+"ㅐ": {matrix:"A36", shift: 54},
+"ㅔ": {matrix:"A22", shift: 18},
+"ㅁ": {matrix:"A7", shift: 151},
+"ㄴ": {matrix:"A28", shift: 86},
+"ㅇ": {matrix:"A33", shift: 18},
+"ㄹ": {matrix:"A27", shift: 123},
+"호": {matrix:"A43", shift: 114},
+"ㅓ": {matrix:"A50", shift: 212},
+"ㅏ": {matrix:"A25", shift: 82},
+"ㅣ": {matrix:"A5", shift: 180},
+"ㅋ": {matrix:"A31", shift: 48},
+"ㅌ": {matrix:"A57", shift: 46},
+"ㅊ": {matrix:"A37", shift: 115},
+"퓨": {matrix:"A80", shift: 125},
+"ㅜ": {matrix:"A46", shift: 40},
+"ㅡ": {matrix:"A12", shift: 65},
+};
+onChildAdded(ref(db, 'chat_defense_class'), (snap) => {
+    const m = snap.val();
+    if (!m) return;
+        let msg = decrypt(m.text);
+        let n = decrypt(m.name);
+        let da = decrypt(m.time);
+
+if(decrypt(m.from) === localStorage.getItem('id_user')){
+chat_defense.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+}
+if(decrypt(m.from) != localStorage.getItem('id_user')){
+chat_defense.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+
+}
+chat_defense.scrollTop = chat_defense.scrollHeight;
+
+});
+onChildAdded(ref(db, 'chat_security_class'), (snap) => {
+    const m = snap.val();
+    if (!m) return;
+
+       
+        let msg = decrypt(m.text);
+        let n = decrypt(m.name);
+        let da = decrypt(m.time);
+if(decrypt(m.from) === localStorage.getItem('id_user')){
+chat_security.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+}
+if(decrypt(m.from) != localStorage.getItem('id_user')){
+chat_security.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+
+}
+chat_security.scrollTop = chat_security.scrollHeight;
+
+});
+onChildAdded(ref(db, 'chat_tisa'), (snap) => {
+    const m = snap.val();
+    if (!m) return;
+        let msg = decrypt(m.text);
+        let n = decrypt(m.name);
+        let da = decrypt(m.time);
+
+if(decrypt(m.from) === localStorage.getItem('id_user')){
+chat_tisa.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+}
+if(decrypt(m.from) != localStorage.getItem('id_user')){
+chat_tisa.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+
+}
+chat_tisa.scrollTop = chat_tisa.scrollHeight;;
+
+});
+onChildAdded(ref(db, 'chat_upper_class'), (snap) => {
+
+    const m = snap.val();
+    if (!m) return;
+        let msg = decrypt(m.text);
+        let n = decrypt(m.name);
+        let da = decrypt(m.time);
+
+if(decrypt(m.from) === localStorage.getItem('id_user')){
+chat_upper.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+}
+if(decrypt(m.from) != localStorage.getItem('id_user')){
+chat_upper.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+
+}
+chat_upper.scrollTop = chat_upper.scrollHeight;
+
+});
+
+
+
+button_sender.onclick = async function() {
+    const userType = localStorage.getItem("types");
+    let chatPath = "";
+
+    // تحديد المسار
+    if (userType === "defense") {
+        chatPath = "chat_defense_class";
+    } 
+    if (userType === "security") {
+        chatPath = "chat_security_class";
+    } 
+    if (chat_tisa.style.display === "block") {
+        chatPath = "chat_tisa";
+    }
+    if (chat_upper.style.display === "block") {
+        chatPath = "chat_upper_class";
+    }
+    if(chat_security.style.display === "block" || chat_defense.style.display === "block" && localStorage.getItem("types") === "tisa") {
+     alert("Your rank is higher than theirs, for you are their overseer; your position does not permit you to m")
+    }
+    if (!txt_send.value) {
+        alert("الرجاء ملء جميع الحقول");
+        return;
+    }
+
+    try {
+const msgRef = push(ref(db, chatPath));
+await set(msgRef, {
+text: encrypt(txt_send.value),
+name: encrypt(localStorage.getItem("name_zero_zero")),
+from: encrypt(localStorage.getItem("id_user")),
+timestamp: Date.now(), 
+timeString: encrypt(new Date().toLocaleTimeString())
+});
+txt_send.value = ""; 
+    } catch (error) {
+        alert("حدث خطأ أثناء الإرسال");
+    }
+    up_lower()
+};
+load.onclick = function(){
+        const e=document.documentElement;
+    (e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen).call(e);
+}
+
+setInterval(function(){
+const now = new Date();
+ let a = ":"
+const hours   = now.getHours(); 
+const minutes = now.getMinutes(); 
+const seconds = now.getSeconds(); 
+let times= hours+a+minutes+a+seconds
+user_name_txt.innerHTML = localStorage.getItem("name_zero_zero")
+time_txt.innerHTML = times
+
+},1000)
+
+
+
+
+let c_b = "rgb(0,0,0,0)"
+
+
+
+setInterval(function(){load_an()},1850)
+function load_an(){
+if(localStorage.getItem("types")==="tisa"){c_b_r = "red";}
+part1.style.animation = "disapper 0.5s"
+setTimeout(function(){
+part1.style.background = c_b
+setTimeout(function(){
+part4.style = "animation:disapper 0.5s;"
+part2.style = "animation:disapper 0.5s; animation-delay: 0.15s;"
+part3.style = "animation:disapper 0.5s; animation-delay: 0.25s;"
+setTimeout(function(){part4.style.background = c_b},500)
+setTimeout(function(){part2.style.background = c_b},650)
+setTimeout(function(){part3.style.background = c_b},750)
+setTimeout(function(){
+part1.style.background = c_b_r
+part1.style= "apper 0.5s"
+
+setTimeout(function(){
+part3.style.animation = "apper 0.5s;"
+part2.style = "animation:apper 0.5s;animation-delay: 0.15s;"
+part4.style = "animation:apper 0.5s; animation-delay: 0.25s;"
+part2.style.background = c_b_r
+setTimeout(function(){part3.style.background = c_b_r},150)
+setTimeout(function(){part4.style.background = c_b_r},250)
+},200)
+},950)
+},200)
+},500)
+
+}
+
+
+onValue(ref(db, "members"), (snap) => {
+  const data = snap.val();
+
+  // 1. التحقق من وجود بيانات (إذا لم توجد بيانات، نخرج من الدالة)
+  if (!data) return;
+
+  // 2. تحويل البيانات إلى مصفوفة للمرور عليها
+  Object.entries(data).forEach(([key, value]) => {
+    
+    // 3. فك التشفير والمقارنة مع معرف المستخدم
+if (decrypt(value.from) === localStorage.getItem("id_user")) {
+      id_txt.innerHTML = value.rink;
+      risk_txt.innerHTML = String(value.risk);
+    }
+  });
+});
+let chat_varibols = false
+chat.ondblclick = function(){
+ if(localStorage.getItem('types')==="tisa"){
+if(chat_varibols === false){
+window_chang_chat.style.animation="opn_window_chang_chat 1s"
+window_chang_chat.style.display="grid"
+chat_varibols = true
+    } else{
+chat_varibols = false
+window_chang_chat.style.animation="close_window_chang_chat 1s"
+setTimeout(function(){
+window_chang_chat.style.display="none"
+},1000)
+}
+ }
+}
+
+
+    </script>
+</html>
