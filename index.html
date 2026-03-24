@@ -1015,54 +1015,87 @@ creat.style.display = "none"
 
 });
 
-function encrypt(txt){
+
+
+
+
+function encrypt(txt) {
     let result = '';
-     txt = String(txt)
-     let words = txt.split(' ');
-    for(let w of words){
-        if(w === '') continue; // تجاهل المسافات الزائدة
-        // اختيار معرف عشوائي
-        let marker = markers[Math.floor(Math.random()*markers.length)];
-        result += marker;
-        // اختيار وصف عشوائي من الموجود مسبقًا
-        let symKeys = Object.keys(descriptors);
-        let sym = symKeys[Math.floor(Math.random()*symKeys.length)];
+    txt = String(txt);
+    let words = txt.split(' ');
+    for (let w of words) {
+        if (w === '') continue;
+
+        // اختيار عشوائي لعلامة البداية ورمز الواصف
+        let marker = markers[Math.floor(Math.random() * markers.length)];
+        let keys = Object.keys(descriptors);
+        let sym = keys[Math.floor(Math.random() * keys.length)];
         let desc = descriptors[sym];
-        result += sym;
-        // تشفير الحروف حرف حرف
-        for(let ch of w){
+        let matrix = matrices[desc.matrix];
+
+        result += marker + sym;   // مثال: «β
+
+        // تشفير كل حرف في الكلمة
+        for (let ch of w) {
             let idx = mother.indexOf(ch);
-            if(idx===-1){ result += ch; continue; }
+            if (idx === -1) {
+                // حرف غير موجود في mother – نتركه كما هو (غير مشفر)
+                result += ch;
+                continue;
+            }
+            // حساب الموقع الجديد في المصفوفة A (باستخدام modulo طول mother)
             let newIdx = (idx + desc.shift) % mother.length;
-            result += matrices[desc.matrix][newIdx];
+            // نأخذ الحرف من المصفوفة A (نتأكد أن newIdx < length(matrix))
+            result += matrix[newIdx];
         }
+        result += ' ';
     }
-    return result;
+    return result.trim();
 }
-function decrypt(txt){
+
+// ===================================================
+// 6. دالة فك التشفير
+// ===================================================
+function decrypt(txt) {
     let result = '';
+    txt = String(txt);
     let i = 0;
-     txt = String(txt)
-    while(i<txt.length){
-        // قراءة المعرف
+    while (i < txt.length) {
+        // البحث عن علامة البداية
         let marker = txt[i];
-        if(!markers.includes(marker)){ i++; continue; }
+        if (!markers.includes(marker)) {
+            result += txt[i];
+            i++;
+            continue;
+        }
         i++;
-        // قراءة وصف
+        // قراءة رمز الواصف (حرف واحد)
         let sym = txt[i];
-        if(!descriptors[sym]){ i++; continue; }
         let desc = descriptors[sym];
+        if (!desc) {
+            i++;
+            continue;
+        }
+        let matrix = matrices[desc.matrix];
         i++;
-        // فك التشفير حتى الوصول لمعرف جديد
-        while(i<txt.length && !markers.includes(txt[i])){
+
+        let word = '';
+        while (i < txt.length && !markers.includes(txt[i])) {
             let ch = txt[i];
-            let idx = matrices[desc.matrix].indexOf(ch);
-            if(idx===-1){ result += ch; i++; continue; }
-            let origIdx = (idx - desc.shift + mother.length*10) % mother.length;
-            result += mother[origIdx];
+            // نبحث عن الحرف المشفر في المصفوفة A
+            let idx = matrix.indexOf(ch);
+            if (idx === -1) {
+                // حرف غير موجود في المصفوفة – نتركه كما هو
+                word += ch;
+                i++;
+                continue;
+            }
+            // نعكس العملية: نطرح shift ونتأكد من النطاق
+            let origIdx = (idx - desc.shift + mother.length) % mother.length;
+            word += mother[origIdx];
             i++;
         }
-        result += ' '; // إعادة المسافة بين الكلمات
+        result += word + ' ';
     }
     return result.trim();
 }
@@ -1570,7 +1603,19 @@ chat_room.scroll({
 
 
 
+
+
+  txt_send.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {  
+        send_in_chat()
+    }
+  });
+
+
 txt_send.ondblclick = async function() {
+    send_in_chat()
+}
+window.send_in_chat = async function() {
     const userType = localStorage.getItem("types");
     let chatPath = "";
 
