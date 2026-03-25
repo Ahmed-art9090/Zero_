@@ -99,7 +99,7 @@ font-size: 10px;
             height: 50%;
             margin-left: 12.5%;
             }
-input,button{
+input,button,textarea{
     background: none;
     border: none;
     color: white;
@@ -107,10 +107,10 @@ input,button{
     border-top: white solid 1px;
     margin: 2.5%;
 }
-input:hover,button:hover{
+input:hover,button:hover,textarea:hover{
 background: rgb(255,255,255,0.015);
 }
-input:focus{
+input:focus,textarea:focus{
 background: rgb(255,255,255,0.03);
 }
             #erorr , h1{
@@ -405,6 +405,7 @@ background: none;
     border: none;
     margin-left: 2.5%;
     display: inline-block;
+    color: red;
 }
 .buttons_membrs:hover{
     background: rgb(255,255,255,0.4);
@@ -459,18 +460,19 @@ background: none;
     
 </div>
 <div id="room_add_news" class="in_news" style="display:none;">
-<h3 id="">NEWS ADD</h3>
+<h3 style="color:white;">NEWS ADD</h3>
 <input type="text" id="h_news"class="inputs"/>
 <textarea height="30%" id="txt_news"class="inputs"></textarea>
 <input style="display:none;" id="file_news" type="file" placeholder="*" style="display:;">
-<label for="file_news" class="buttons" style="background:url('files/files.png');background-size:cover;" ></label>
-<button id="send_news" class="buttons">+</button>
+<label for="file_news" class="buttons" style="background:url('files/files.png');background-size:cover;" >+</label>
+<button id="send_news" class="buttons">^</button>
+</div>
+</div>
 </div>
 </div>
 <h1 id="intro_txt"></h1>
 </div>
-</div>
-</div>
+
 <div id="opn_creat" style="display:none;">
     <input placeholder="name" id="text" value="Name" />
     <input placeholder="password" type="password" id="pass" />
@@ -1106,8 +1108,8 @@ Object.entries(data).forEach(([key, value]) => {
 if (String(value.from) === localStorage.getItem("id_user")) {
 console.log(value.from,decrypt(value.types))
 let color_all = ""
-if (value.minister === "no" && localStorage.getItem("types") === "defense") { color_all = "red" }
-if (value.minister === "no" && localStorage.getItem("types") === "security") { color_all = "blue" }
+if (localStorage.getItem("types") === "defense") { color_all = "red" }
+if (localStorage.getItem("types") === "security") { color_all = "blue" }
 if (value.minister === "no" && localStorage.getItem("types") === "tisa") { color_all = "red" }
 if (value.rink === "zero") { color_all = "#8100B6" }
 
@@ -1133,7 +1135,7 @@ c_b_r = color_all
         }
     }).catch(error => console.error(error));
 }
-let rinks = ["T.Mask", "Hacker", "Kracker", "General", "legendary", "imperial", "Satan", "Cosmic", "zero"];
+let rinks = ["T.Mask", "Hacker", "Kracker", "General", "legendary", "imperial", "Satan", "Cosmic"];
 let rinks_risk = [100, 500, 1000, 1500, 2000, 5000, 7000, 15000, 30000];
 let rinks_risk_adds = [5, 20, 35, 50, 75, 80, 90, 100, 200];
 
@@ -1728,8 +1730,8 @@ part1.style= "apper 0.5s"
 
 setTimeout(function(){
 part3.style.animation = "apper 0.5s;"
-part2.style = "animation:apper 0.5s;animation-delay: 0.15s;"
-part4.style = "animation:apper 0.5s; animation-delay: 0.25s;"
+part2.style = "animation:apper 0.5s;animation-delay: 0.15s;background:black;"
+part4.style = "animation:apper 0.5s; animation-delay: 0.25s;background:black;"
 part2.style.background = c_b_r
 setTimeout(function(){part3.style.background = c_b_r},150)
 setTimeout(function(){part4.style.background = c_b_r},250)
@@ -1755,7 +1757,15 @@ if (value.from === localStorage.getItem("id_user")) {
       id_txt.innerHTML = value.rink;
       risk_txt.innerHTML = String(value.risk);
     localStorage.setItem("minister",value.minister)
+let hzlmpkh = ""
+if(localStorage.getItem("types") === "tisa"){
+hzlmpkh = "#8600C5"
+}
+if(localStorage.getItem("types") === "security"){
+hzlmpkh = "blue"
+}
 
+intro_txt.style.color = hzlmpkh
     }
   });
 });
@@ -1813,11 +1823,12 @@ if(types_mem === localStorage.getItem("types") || "tisa" === localStorage.getIte
 if(mem === "no" && rink_mem != "zero"){
 room_members.innerHTML += `<div class="sameone"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 id="${id_mem}" ondblclick="Delete_member(this.id)" class="buttons_membrs">×</h3><h3 id="${id_mem}x" onclick="level_up(this.id)" class="buttons_membrs">^</h3><h3 class="opn_info" onclick="opn_info(${id_mem})">¡</h3></div>`
 }
-if(mem === "security" || mem === "tisa" || mem === "defense"){
-room_members.innerHTML += `<div class="sameone minister" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 class="buttons_membrs" id="${id_mem}" ondblclick="Delete_member(this.id)">×</h3><h3 class="buttons_membrs" id="${id_mem}x" onclick="level_up(this.id)">^</h3><h3 class="opn_info" onclick="opn_info(${id_mem})">¡</h3></div>`
+
+if(rink_mem === "Cosmic" && mem === "no"){
+room_members.innerHTML += `<div class="sameone zero" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 id="${id_mem}" class="buttons_membrs" ondblclick="Delete_member(this.id)">×</h3> <h3 onclick="opn_info(${id_mem})" class="opn_info">¡</h3></div>`
 }
 if(rink_mem === "zero" && mem === "no"){
-room_members.innerHTML += `<div class="sameone zero" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 id="${id_mem}" class="buttons_membrs" ondblclick="Delete_member(this.id)">×</h3> <h3 onclick="opn_info(${id_mem})" class="opn_info">¡</h3></div>`
+room_members.innerHTML += `<div class="sameone zero" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 onclick="opn_info(${id_mem})" class="opn_info">¡</h3></div>`
 }
 }
 
