@@ -441,6 +441,7 @@ background: none;
 <div id="chat"style="width: 40%;height: 100%;margin-left: 1%;border-bottom: white solid 1px;border-top: white solid 1px;overflow: hidden;display: inline-block;animation: opn 1s;">
 <div id="chat_room">
 <div id="chat_defense" style="display:none;"></div>
+<div id="chat_minister" style="display:none;animation:1s apper;"></div>
 <div id="chat_security" style="display:none;"></div>
 <div id="chat_tisa" style="display:none;"></div>
 <div id="chat_upper" style="display:none;"></div>
@@ -575,6 +576,7 @@ const firebaseConfig = {
 let idx = ""
 let loock = ""
 let security = document.getElementById("security")
+let chat_minister = document.getElementById("chat_minister")
 let window_chang_chat = document.getElementById("window_chang_chat")
 let defense = document.getElementById("defense")
 let tisa = document.getElementById("tisa")
@@ -1535,6 +1537,37 @@ chat_room.scroll({
   behavior: 'smooth'
 });
 });
+onChildAdded(ref(db, 'chat_ministers'), (snap) => {
+    const m = snap.val();
+    if (!m) return;
+        let msg = decrypt(m.text);
+        let n = decrypt(m.name);
+        let da = decrypt(m.time);
+
+if(m.from === localStorage.getItem('id_user')){
+chat_security_class.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+}
+if(m.from != localStorage.getItem('id_user')){
+chat_minister.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
+            <h3>${msg}</h3>
+            <p>${da}</p>
+            </div>`;
+
+}
+chat_minister.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+})
+chat_room.scroll({
+  top: 100000000000,
+  left: 0,
+  behavior: 'smooth'
+})
+});
 onChildAdded(ref(db, 'chat_security_class'), (snap) => {
     const m = snap.val();
     if (!m) return;
@@ -1646,9 +1679,10 @@ chat_room.scroll({
 txt_send.ondblclick = async function() {
     send_in_chat()
 }
+    let chatPath = "";
 window.send_in_chat = async function() {
     const userType = localStorage.getItem("types");
-    let chatPath = "";
+
 
     // تحديد المسار
     if (userType === "defense") {
@@ -1769,8 +1803,11 @@ intro_txt.style.color = hzlmpkh
     }
   });
 });
+
+
 let chat_varibols = false
 chat.ondblclick = function(){
+
  if(localStorage.getItem('types')==="tisa"){
 if(chat_varibols === false){
 window_chang_chat.style.animation="opn_window_chang_chat 1s"
@@ -1782,6 +1819,28 @@ window_chang_chat.style.animation="close_window_chang_chat 1s"
 setTimeout(function(){
 window_chang_chat.style.display="none"
 },1000)
+}
+ }
+ if(localStorage.getItem('types')!="tisa"){
+if(localStorage.getItem("minister")!= "no"){
+chat_upper.style.display = "none"
+chat_minister.style.display = "none"
+chat_tisa.style.display = "none"
+chat_security.style.display = "none"
+chat_defense.style.display = "none"
+if(   chatPath === "chat_ministers"){
+if(localStorage.getItem("types") === "security"){
+chatPath = "chat_security_class";
+   chat_security.style.display = "block"
+       }
+if(localStorage.getItem("types") === "defense"){
+chatPath = "chat_defenste_class";
+   chat_defense.style.display = "block"
+       }
+}else{
+   chat_minister.style.display = "block" 
+       chatPath = "chat_ministers";
+}
 }
  }
 }
