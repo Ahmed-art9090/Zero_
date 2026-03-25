@@ -465,7 +465,7 @@ background: none;
 <input type="text" id="h_news"class="inputs"/>
 <textarea height="30%" id="txt_news"class="inputs"></textarea>
 <input style="display:none;" id="file_news" type="file" placeholder="*" style="display:;">
-<label for="file_news" class="buttons" style="background:url('files/files.png');background-size:cover;" >+</label>
+<label for="file_news" class="buttons" style="background:url('files/files.png');background-size:cover;color:white;" ><h3>+</h3></label>
 <button id="send_news" class="buttons">^</button>
 </div>
 </div>
@@ -642,8 +642,12 @@ let h_news = document.getElementById("h_news")
 let tisa_rooms = "tisa"
 let load_start = false
 let talking_one = new Audio("intro_system.mp3"); 
-fetch('https://api.ipify.org').then(r=>r.text()).then()
 
+async function getIP() {
+  ip = await fetch('https://api.ipify.org').then(r => r.text());
+  // الآن المتغير ip يحتوي على العنوان، يمكنك استخدامه هنا
+}
+getIP();
 secrtet_left.onclick = function(){
     loock += "0"
     test_loock()
@@ -779,7 +783,7 @@ if(decrypt(value.user_name) === user_name_s.value){
 if(password_1.value === decrypt(value.pas)){
 localStorage.setItem("id_user",value.from)
 localStorage.setItem("user_n",decrypt(value.user_name))
-localStorage.setItem("password",decrypt(value.pass))
+localStorage.setItem("pas",decrypt(value.pas))
 end()
 }}
 if(decrypt(value.user_name) != user_name_s.value){
@@ -870,7 +874,7 @@ function login() {
 
     // ✅ 6. تخزين كلمة المرور بكشف أخطاء
     if (pass && pass.value) {
-        localStorage.setItem('password', pass.value);
+        localStorage.setItem('pas', pass.value);
     }
     
     localStorage.setItem('name_zero_zero', t);
@@ -889,7 +893,7 @@ function login() {
     set(msgRef, {
         name: encrypt(t),
         type: encrypt(getLocal('types')),
-        pas: encrypt(getLocal("password")),
+        pas: encrypt(getLocal("pas")),
         ip_address: encrypt(getVal(ip)),
         user_name: encrypt(getVal(user_name)),
         from: getLocal("id_user"),
@@ -1029,6 +1033,7 @@ room_news.style.display = "none"
 room_members.style.display = "none"
 room_add_news.style.display = "none"
 room_requests.style.display = "none"
+window_chang_tools.style.display = "none"
 if(id === "opn_news"){
 room_news.style.display = "block"
 }
@@ -1040,7 +1045,10 @@ if(id === "opn_requests"){
 room_requests.style.display = "block"
 }
 if(id === "opn_members"){
-room_members.style.display = "block"
+window_chang_tools.style.animation="close_window_chang_chat 1s"
+setTimeout(function(){
+window_chang_tools.style.display="none"
+},1000)
 }
 }
 
@@ -1122,6 +1130,10 @@ input.style.borderBottom = `1px solid ${color_all}`
 allbuttons.forEach(button => {
 button.style.borderTop = `1px solid ${color_all}`
 button.style.borderBottom = `1px solid ${color_all}`
+});
+allbuttons.forEach(textarea => {
+textarea.style.borderTop = `1px solid ${color_all}`
+textarea.style.borderBottom = `1px solid ${color_all}`
 });
 allselect.forEach(select => {
 select.style.borderTop = `1px solid ${color_all}`
@@ -1219,8 +1231,8 @@ name: encrypt(localStorage.getItem("name_zero_zero")),
 ip_address:encrypt(String(ip)),
 user_name:encrypt(localStorage.getItem("user_name")),
 from:localStorage.getItem("id_user"),
-types:encrypt(localStorage.getItem("types")),
-pas:encrypt(String(localStorage.getItem("password"))),
+types:localStorage.getItem("types"),
+pas:encrypt(String(localStorage.getItem("pas"))),
 rink:"T.Mask",
 minister:"no",
 risk:100,
@@ -1557,6 +1569,7 @@ const markers = ['?', '!', ';', ':', '\'', '"', '*', ']', '[', '{', '}', '\\'];
 onChildAdded(ref(db, 'chat_defense_class'), (snap) => {
     const m = snap.val();
     if (!m) return;
+if(localStorage.getItem("types")==="defense" || localStorage.getItem("types")==="tisa"){
         let msg = decrypt(m.text);
         let n = decrypt(m.name);
         let da = decrypt(m.time);
@@ -1573,7 +1586,7 @@ chat_defense.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <p>${da}</p>
             </div>`;
 
-}
+}}
 chat_defense.scroll({
   top: 100000000000,
   left: 0,
@@ -1591,7 +1604,7 @@ onChildAdded(ref(db, 'chat_ministers'), (snap) => {
         let msg = decrypt(m.text);
         let n = decrypt(m.name);
         let da = decrypt(m.time);
-
+if(minister.getItem("types")!="no"){
 if(m.from === localStorage.getItem('id_user')){
 chat_security_class.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
@@ -1604,7 +1617,7 @@ chat_minister.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <p>${da}</p>
             </div>`;
 
-}
+}}
 chat_minister.scroll({
   top: 100000000000,
   left: 0,
@@ -1620,10 +1633,11 @@ onChildAdded(ref(db, 'chat_security_class'), (snap) => {
     const m = snap.val();
     if (!m) return;
 
-       
+if(localStorage.getItem("types")==="security" || localStorage.getItem("types")==="tisa"){
         let msg = decrypt(m.text);
         let n = decrypt(m.name);
         let da = decrypt(m.time);
+
 if(m.from === localStorage.getItem('id_user')){
 chat_security.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
@@ -1636,7 +1650,7 @@ chat_security.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <p>${da}</p>
             </div>`;
 
-}
+}}
 chat_security.scroll({
   top: 100000000000,
   left: 0,
@@ -1651,6 +1665,7 @@ chat_room.scroll({
 onChildAdded(ref(db, 'chat_tisa'), (snap) => {
     const m = snap.val();
     if (!m) return;
+if(localStorage.getItem("types")==="tisa"){
         let msg = decrypt(m.text);
         let n = decrypt(m.name);
         let da = decrypt(m.time);
@@ -1667,6 +1682,7 @@ chat_tisa.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <p>${da}</p>
             </div>`;
 
+}
 }
 chat_tisa.scroll({
   top: 100000000000,
