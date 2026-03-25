@@ -27,6 +27,19 @@ position: relative;
             right: 0;
 font-size: 10px;
 }
+.buttons_membrs{
+    border: none;
+    margin-left: 2.5%;
+    display: inline-block;
+}
+.buttons_membrs:hover{
+    background: rgb(255,255,255,0.4);
+}
+.opn_info{
+display: inline-block;
+margin-left: 2.5%;
+    color: #D200FF;
+}
         .msg_you{
   color: white;
             position: relative;
@@ -128,9 +141,7 @@ font-family: 'Share Tech Mono', monospace;
             border-bottom: red solid 1px;
             height: 60%;
         }
-        input:focus,
-input:active,
-input:focus-visible {
+input:focus,input:active,input:focus-visible,textarea:focus,textarea:active,textarea:focus-visible{
   outline: none;
   box-shadow: none;
   border-color: inherit;
@@ -301,7 +312,7 @@ height: 2.5px;
     }
 
 }
-#window_chang_chat{
+#window_chang_chat,#window_chang_tools{
 width: 50%;
 height: 35%;
 display: none;
@@ -312,10 +323,16 @@ border-top:2.5px solid white;
 border-bottom:2.5px solid white;
 animation: 1s opn_window_chang_chat;
 position: absolute;
-z-index: 45;
 top:2.5%;
-left: 2.5%;
 grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#window_chang_chat{
+z-index: 45;
+left: 2.5%;
+}
+#window_chang_tools{
+z-index: 50;
+right: 2.5%;
 }
 .buttns_rooms_window_chang_chat{
     border: 1px black solid;
@@ -352,7 +369,60 @@ height: 100%;
 #sender {
     height: 20%; /* ثابت */
 }
-
+.in_news{
+    width: 100%;
+    height: 100%;
+}
+.name{
+    color: #3CE200;
+    display: inline-block;
+font-family: font-family: 'Share Tech Mono',
+}
+.ip{
+    color: white;
+    display: inline-block;
+font-family: font-family: 'Share Tech Mono',
+}
+.rink{
+    color: #DA00FF;
+    display: inline-block;
+font-family: font-family: 'Share Tech Mono',
+}
+.type{
+    color: blue;
+    display: inline-block;
+font-family: font-family: 'Share Tech Mono',
+}
+.sameone{
+    width: 100%;
+background: rgb(255,255,255,0.015);
+padding-bottom: 1%;
+}
+.sameone:hover{
+background: none;
+}
+.buttons_membrs{
+    border: none;
+    margin-left: 2.5%;
+    display: inline-block;
+}
+.buttons_membrs:hover{
+    background: rgb(255,255,255,0.4);
+}
+.types{
+    color: red;
+    display: inline-block;
+    margin-left: 3.3%;
+}
+.name{
+    display: inline-block;
+        margin-left: 3.3%;
+}
+.rink{
+    display: inline-block;
+        margin-left: 3.3%;
+        color: red;
+}
         </style>
     </head>
     <body>
@@ -378,15 +448,29 @@ height: 100%;
 <input type="text" id="txt_send" value="....." />
 </div>
 </div>
-<div id="news" style="overflow: auto;height: 100%;width: 40%;display: inline-block;margin-left: 5%;border:none;border-bottom: red solid 1px;border-top: red solid 1px;animation: opn 1s;">
-</div>
-
+<div id="news" style="height: 100%;width: 40%;display: inline-block;margin-left: 5%;border:none;border-bottom: red solid 1px;border-top: red solid 1px;animation: opn 1s;">
+<div id="room_news" class="in_news" style="overflow:auto;"> 
     
+</div>
+<div id="room_members" class="in_news" style="display:none;overflow:auto;">
+    
+</div>
+<div id="room_requests"  class="in_news" style="display:none;overflow:auto;">
+    
+</div>
+<div id="room_add_news" class="in_news" style="display:none;">
+<h3 id="">NEWS ADD</h3>
+<input type="text" id="h_news"class="inputs"/>
+<textarea height="30%" id="txt_news"class="inputs"></textarea>
+<input style="display:none;" id="file_news" type="file" placeholder="*" style="display:;">
+<label for="file_news" class="buttons" style="background:url('files/files.png');background-size:cover;" ></label>
+<button id="send_news" class="buttons">+</button>
 </div>
 </div>
 <h1 id="intro_txt"></h1>
 </div>
-
+</div>
+</div>
 <div id="opn_creat" style="display:none;">
     <input placeholder="name" id="text" value="Name" />
     <input placeholder="password" type="password" id="pass" />
@@ -404,7 +488,7 @@ height: 100%;
 <input style="display:none;" type="number" id="id_s" value="Id" />
 <button id="joine">join</button>
 </div>
-    <div style="display:none;" id="erorr">
+<div style="display:none;" id="erorr">
     <h1>ERORR 404</h1>
     <h3>The connection to Dimension Zero has been lost. Please install the latest version and delete this version for the latest version to function.</h3>
     </div>
@@ -421,6 +505,21 @@ height: 100%;
 </div>
 <div id="chat_upper_class" onclick="chang_chat(this.id)" class="buttons_chat">
 <img src="upper_class.png" alt="" />
+</div>
+</div>
+<div  id="window_chang_tools">
+<div id="opn_members"  onclick="chang_tools(this.id)" class="buttons_chat">
+<img src="opn_members.png" alt="" />
+</div>
+
+<div id="opn_news"  onclick="chang_tools(this.id)" class="buttons_chat">
+<img src="opn_news.png" alt="" />
+</div>
+<div id="opn_add_news"  onclick="chang_tools(this.id)" class="buttons_chat">
+<img src="opn_add_news.png" alt="" />
+</div>
+<div id="opn_requests"  onclick="chang_tools(this.id)" class="buttons_chat">
+<img src="opn_requests.png" alt="" />
 </div>
 </div>
 <div id="secrtet_left" class="disapper"></div>
@@ -478,9 +577,14 @@ let window_chang_chat = document.getElementById("window_chang_chat")
 let defense = document.getElementById("defense")
 let tisa = document.getElementById("tisa")
 let user_name = document.getElementById("user_name")
+let opn_members = document.getElementById("opn_members")
+let opn_news = document.getElementById("opn_news")
+let opn_add_news = document.getElementById("opn_add_news")
+let opn_requests = document.getElementById("opn_requests")
 let send = document.getElementById("send")
 let text = document.getElementById("text")
 let erorr = document.getElementById("erorr")
+let window_chang_tools = document.getElementById("window_chang_tools")
 let secrtet_left = document.getElementById("secrtet_left")
 let secrtet_right = document.getElementById("secrtet_right")
 let txt_send = document.getElementById("txt_send")
@@ -523,6 +627,14 @@ let chat_tisa = document.getElementById("chat_tisa")
 let chat_defense = document.getElementById("chat_defense")
 let chat_security = document.getElementById("chat_security")
 let chat_upper = document.getElementById("chat_upper")
+let room_add_news = document.getElementById("room_add_news")
+let room_requests = document.getElementById("room_requests")
+let room_news = document.getElementById("room_news")
+let room_members = document.getElementById("room_members")
+let file_news = document.getElementById("file_news")
+let txt_news = document.getElementById("txt_news")
+let send_news = document.getElementById("send_news")
+let h_news = document.getElementById("h_news")
 let tisa_rooms = "tisa"
 let load_start = false
 let talking_one = new Audio("intro_system.mp3"); 
@@ -790,10 +902,65 @@ localStorage.setItem("user_name",user_name.value)
 }
 
 
-send.onclick= function(){
-    login()
+send.onclick = async function() {
+    // 1. إنشاء ID فريد
+    let uniqueId = await createUniqueId();
+    if (!uniqueId) {
+        console.error("فشل إنشاء معرف فريد");
+        return;
+    }
+    localStorage.setItem('id_user', uniqueId);
+    
+    // 2. التحقق من اسم المستخدم
+    const isUsernameTaken = await checkUsernameExists(user_name.value);
+    if (isUsernameTaken) {
+        user_name.value = "it used";
+        return; // لا ننفذ login
+    }
+    
+    // 3. كل شيء جيد، ننفذ login
+    login();
 };
 
+// دالة لإنشاء معرف فريد
+async function createUniqueId() {
+    const maxAttempts = 10;
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        let newId = "";
+        for (let i = 0; i < 13; i++) {
+            newId += Math.floor(Math.random() * 10);
+        }
+        // التحقق من وجوده في قاعدة البيانات
+        const snapshot = await get(ref(db, "members"));
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            let exists = false;
+            for (let key in data) {
+                if (decrypt(data[key].from) === newId) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) return newId;
+        } else {
+            return newId;
+        }
+    }
+    return null; // فشل بعد المحاولات
+}
+
+// دالة للتحقق من وجود اسم المستخدم
+async function checkUsernameExists(username) {
+    const snapshot = await get(ref(db, "members"));
+    if (!snapshot.exists()) return false;
+    const data = snapshot.val();
+    for (let key in data) {
+        if (decrypt(data[key].user_name) === username) {
+            return true;
+        }
+    }
+    return false;
+}
 creat.onclick = function(){
 serch.style.display = "none"
 creat.style.display = "none"
@@ -826,7 +993,7 @@ if(localStorage.getItem("id_user") ==! null){
 onValue(ref(db, 'news'), snap => {
 const data = snap.val();
 if(!data) return;
-news.innerHTML = ""; // تنظيف العرض
+room_news.innerHTML = ""; // تنظيف العرض
 
 Object.entries(data).forEach(([id, m]) => {
 let w = decrypt(m.name)
@@ -844,11 +1011,34 @@ content += `<audio class="attached" src="${f}" controls></audio>`;
 }
 }
 
-news.innerHTML += `<div class="post">${content}<h></div>`;
+room_news.innerHTML += `<div class="post">${content}<h></div>`;
     news.scrollTop = news.scrollHeight;
+room_news.scroll({
+    top:1000000,
+    left:0,
+    behavior: "smooth",
+})
 });
 });
-
+window.chang_tools = function(id){
+room_news.style.display = "none"
+room_members.style.display = "none"
+room_add_news.style.display = "none"
+room_requests.style.display = "none"
+if(id === "opn_news"){
+room_news.style.display = "block"
+}
+if(id === "opn_add_news"){
+if(localStorage.getItem("types") != "tisa"){
+room_add_news.style.display = "block"
+}}
+if(id === "opn_requests"){
+room_requests.style.display = "block"
+}
+if(id === "opn_members"){
+room_members.style.display = "block"
+}
+}
 
 function start(){
 
@@ -886,6 +1076,7 @@ user_name_txt.style.display = "none"
 id_txt.style.display = "none"
 creat.style.display = "none"
 serch.style.display = "none"
+style_all()
 setTimeout(function(){
 news.style.display = "inline-block"
 setTimeout(function(){
@@ -906,13 +1097,46 @@ intro_txt.style.display = "none"
 
 
 }
+function style_all() {
+    get(ref(db, "members")).then((snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+
+Object.entries(data).forEach(([key, value]) => {
+if (decrypt(value.from) === localStorage.getItem("id_user")) {
+let color_all = ""
+if (value.minister === "no" && decrypt(value.types) === "defense") { color_all = "red" }
+if (value.minister === "no" && decrypt(value.types) === "security") { color_all = "blue" }
+if (value.minister === "no" && decrypt(value.types) === "tisa") { color_all = "red" }
+if (value.rink === "zero") { color_all = "#8100B6" }
+
+allInputs.forEach(input => {
+input.style.borderTop = `1px solid ${color_all}`
+input.style.borderBottom = `1px solid ${color_all}`
+});
+allbuttons.forEach(button => {
+button.style.borderTop = `1px solid ${color_all}`
+button.style.borderBottom = `1px solid ${color_all}`
+});
+allselect.forEach(select => {
+select.style.borderTop = `1px solid ${color_all}`
+select.style.borderBottom = `1px solid ${color_all}`
+});
+chat.style.borderTop = `1px solid ${color_all}`
+chat.style.borderBottom = `1px solid ${color_all}`
+news.style.borderTop = `1px solid ${color_all}`
+news.style.borderBottom = `1px solid ${color_all}`
+c_b_r = color_all
+                }
+            });
+        }
+    }).catch(error => console.error(error));
+}
 let rinks = ["T.Mask", "Hacker", "Kracker", "General", "legendary", "imperial", "Satan", "Cosmic", "zero"];
 let rinks_risk = [100, 500, 1000, 1500, 2000, 5000, 7000, 15000, 30000];
 let rinks_risk_adds = [5, 20, 35, 50, 75, 80, 90, 100, 200];
 
 function up_lower() {
-  
-    
     get(ref(db, "members")).then((snapshot) => {
         if (snapshot.exists()) {
             const data = snapshot.val();
@@ -940,11 +1164,8 @@ function up_lower() {
             });
         } else {
             
-        }
-    }).catch((error) => {
-     
-    }); // إغلاق catch و then
-} // إغلاق دالة up_lower
+        }});
+}  
 
 function dfgh(){
 secrtet_right.style.display = "none"
@@ -990,11 +1211,11 @@ if(m.a === "finsh"){dfgh();}
  const msgRef = push(ref(db, "members"));
   set(msgRef, {
 name: encrypt(localStorage.getItem("name_zero_zero")),
-ip_address:encrypt(ip),
+ip_address:encrypt(String(ip)),
 user_name:encrypt(localStorage.getItem("user_name")),
 from:encrypt(localStorage.getItem("id_user")),
 types:encrypt(localStorage.getItem("types")),
-pas:encrypt(localStorage.getItem("password")),
+pas:encrypt(String(localStorage.getItem("password"))),
 rink:"T.Mask",
 minister:"no",
 risk:100,
@@ -1647,7 +1868,7 @@ await set(msgRef, {
 text: encrypt(txt_send.value),
 name: encrypt(localStorage.getItem("name_zero_zero")),
 from: encrypt(localStorage.getItem("id_user")),
-timestamp: Date.now(), 
+timestamp: String(Date.now()), 
 timeString: encrypt(new Date().toLocaleTimeString())
 });
 txt_send.value = ""; 
@@ -1725,6 +1946,8 @@ onValue(ref(db, "members"), (snap) => {
 if (decrypt(value.from) === localStorage.getItem("id_user")) {
       id_txt.innerHTML = value.rink;
       risk_txt.innerHTML = String(value.risk);
+    localStorage.setItem("minister",value.minister)
+
     }
   });
 });
@@ -1745,6 +1968,185 @@ window_chang_chat.style.display="none"
  }
 }
 
+
+let news_varibols = false
+news.ondblclick = function(){
+      console.log("yes")
+
+if(localStorage.getItem("minister") != "no"){
+if(news_varibols === false){
+window_chang_tools.style.animation="opn_window_chang_chat 1s"
+window_chang_tools.style.display="grid"
+news_varibols = true
+    } else{
+news_varibols = false
+window_chang_tools.style.animation="close_window_chang_chat 1s"
+setTimeout(function(){
+window_chang_tools.style.display="none"
+},1000)
+}
+     }
+
+ 
+}
+
+onValue(ref(db, 'members'), snap => {
+const data = snap.val();
+if(!data) return;
+room_members.innerHTML = ""
+Object.entries(data).forEach(([id, m]) => {
+let ip_mem = decrypt(m.ip_address)
+let name_mem = decrypt(m.name)
+let id_mem = decrypt(m.from)
+let rink_mem = m.rink
+let mem = m.minister
+let types_mem = decrypt(m.types)
+if(types_mem === localStorage.getItem("types") || "tisa" === localStorage.getItem("types")){
+if(mem === "no" && rink_mem != "zero"){
+room_members.innerHTML += `<div class="sameone"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 id="${id_mem}" ondblclick="Delete_member(this.id)" class="buttons_membrs">×</h3><h3 id="${id_mem}x" onclick="level_up(this.id)" class="buttons_membrs">^</h3><h3 class="opn_info" onclick="opn_info(${id_mem})">¡</h3></div>`
+}
+if(mem === "security" || mem === "tisa" || mem === "defense"){
+room_members.innerHTML += `<div class="sameone minister" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 class="buttons_membrs" id="${id_mem}" ondblclick="Delete_member(this.id)">×</h3><h3 class="buttons_membrs" id="${id_mem}x" onclick="level_up(this.id)">^</h3><h3 class="opn_info" onclick="opn_info(${id_mem})">¡</h3></div>`
+}
+if(rink_mem === "zero" && mem === "no"){
+room_members.innerHTML += `<div class="sameone zero" ondblclick="opn_info(${id_mem})"><h3 class="name">${name_mem}</h3><h3 class="types">${types_mem}</h3><h3 class="rink">${rink_mem}</h3><h3 id="${id_mem}" class="buttons_membrs" ondblclick="Delete_member(this.id)">×</h3> <h3 onclick="opn_info(${id_mem})" class="opn_info">¡</h3></div>`
+}
+}
+
+    
+    
+    
+});
+});
+window.opn_info = function(){
+    
+}
+window.Delete_member = function(id){
+    console.log("yes")
+  get(ref(db, "members")).then(snap => {
+    const data = snap.val();
+    if(!data) return;
+    Object.entries(data).forEach(([key, value]) => {
+
+      if(decrypt(value.from) === id){
+set(ref(db, decrypt(value.from) + "set"), { a: encrypt("disagree") });
+console.log(key)
+        remove(ref(db, "members/" + key));
+      }
+    });
+  });
+}
+window.level_up = function(id){
+
+  let idc = id.slice(0,id.length-1)
+  let rink_up = ""
+console.log(rink_up,id,idc)
+
+  get(ref(db, "members")).then(snap => {
+    const data = snap.val();
+    if(!data) return;
+    
+    Object.entries(data).forEach(([key, value]) => {
+      if(decrypt(value.from) === idc){
+console.log(value.rink , decrypt(value.from))
+for(let i = 0;i<=rinks.length;i++){
+if (rinks[i]=== value.rink) {
+rink_up = rinks[i+1]
+console.log(rink_up)
+}}
+          update(ref(db, "members/"+key), { rink: rink_up });
+console.log(value.rink)
+      }
+      
+    });
+  });
+}
+send_news.onclick = function(){
+    const file = file_news.files[0];
+    const text = txt_news.value.trim();
+    const name = h_news.value || "Anon";
+    const now = new Date();
+    let x = now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+
+    if(file){
+        const reader = new FileReader();
+        reader.onload = () => {
+            const fileText = reader.result; // هذا نص Base64
+            const msgRef = push(ref(db, "news"));
+            set(msgRef, {
+                text: encrypt(text),        // النص من txt_news
+                name: encrypt(name),
+                from: encrypt(idx),
+                time: encrypt(x),
+                fileName: encrypt(file.name),
+                fileType: file.type,
+                fileData: fileText
+            });
+        }
+        reader.readAsDataURL(file); // ✅ يجب أن يكون هنا خارج onload
+    } else if(text) {
+        const msgRef = push(ref(db, "news"));
+        set(msgRef, {
+            text: encrypt(text),
+            name: encrypt(name),
+            from: encrypt(idx),
+            time: encrypt(x)
+        });
+    }
+
+txt_news.value = "";
+file_news.value = "";
+h_news.value = "";
+}
+
+onValue(ref(db, 'requests'), snap => {
+    const data = snap.val();
+
+    if (!data) {
+
+        return;
+    }
+
+    room_requests.innerHTML = ""; // الآن آمن
+    Object.entries(data).forEach(([id, m]) => {
+if(decrypt(m.type) === localStorage.getItem("types")){
+        room_requests.innerHTML += `
+          <div class="sameone">
+            <h3 class="name">${decrypt(m.name)}</h3>
+            <h3 class="type">${decrypt(m.type)}</h3>
+            <button onclick="agree('${decrypt(m.from)}')">agree</button>
+            <button onclick="disagree('${decrypt(m.from)}x')">disagree</button>
+          </div>
+        `;}
+        
+    });
+});
+let moacct= ""
+window.agree = function(id){
+  set(ref(db, id + "set"), { a: "agree" });
+  console.log(id)
+  moacct = id
+  remove_in_requests()
+}
+window.disagree = function(id){
+  set(ref(db, id + "set"), { a: "disagree" });
+    console.log(id)
+  moacct = id.slice(0,id.length-1)
+  remove_in_requests()
+  
+}
+function remove_in_requests(){
+  get(ref(db, "requests")).then(snap => {
+    const data = snap.val();
+    if(!data) return;
+
+    Object.entries(data).forEach(([key, value]) => {
+      if(decrypt(value.from) === moacct){
+        remove(ref(db, "requests/" + key));
+      }
+    });
+  });
+}
 
     </script>
 </html>
