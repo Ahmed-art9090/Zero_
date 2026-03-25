@@ -773,7 +773,7 @@ get(ref(db, "members")).then(snap => {
     Object.entries(data).forEach(([key, value]) => {
 if(decrypt(value.user_name) === user_name_s.value){
 if(password_1.value === decrypt(value.pas)){
-localStorage.setItem("id_user",decrypt(value.from))
+localStorage.setItem("id_user",value.from)
 localStorage.setItem("user_n",decrypt(value.user_name))
 localStorage.setItem("password",decrypt(value.pass))
 end()
@@ -888,7 +888,7 @@ function login() {
         pas: encrypt(getLocal("password")),
         ip_address: encrypt(getVal(ip)),
         user_name: encrypt(getVal(user_name)),
-        from: encrypt(getLocal("id_user")),
+        from: getLocal("id_user"),
         log: encrypt("waiting"),
         time: encrypt(x),
     });
@@ -1103,11 +1103,12 @@ function style_all() {
             const data = snapshot.val();
 
 Object.entries(data).forEach(([key, value]) => {
-if (decrypt(value.from) === localStorage.getItem("id_user")) {
+if (String(value.from) === localStorage.getItem("id_user")) {
+console.log(value.from,decrypt(value.types))
 let color_all = ""
-if (value.minister === "no" && decrypt(value.types) === "defense") { color_all = "red" }
-if (value.minister === "no" && decrypt(value.types) === "security") { color_all = "blue" }
-if (value.minister === "no" && decrypt(value.types) === "tisa") { color_all = "red" }
+if (value.minister === "no" && localStorage.getItem("types") === "defense") { color_all = "red" }
+if (value.minister === "no" && localStorage.getItem("types") === "security") { color_all = "blue" }
+if (value.minister === "no" && localStorage.getItem("types") === "tisa") { color_all = "red" }
 if (value.rink === "zero") { color_all = "#8100B6" }
 
 allInputs.forEach(input => {
@@ -1142,7 +1143,7 @@ function up_lower() {
             const data = snapshot.val();
 
             Object.entries(data).forEach(([key, value]) => {
-                const decryptedFrom = decrypt(value.from);
+                const decryptedFrom = value.from;
                 const userId = localStorage.getItem("id_user");
 
                 if (decryptedFrom === userId) {
@@ -1213,7 +1214,7 @@ if(m.a === "finsh"){dfgh();}
 name: encrypt(localStorage.getItem("name_zero_zero")),
 ip_address:encrypt(String(ip)),
 user_name:encrypt(localStorage.getItem("user_name")),
-from:encrypt(localStorage.getItem("id_user")),
+from:localStorage.getItem("id_user"),
 types:encrypt(localStorage.getItem("types")),
 pas:encrypt(String(localStorage.getItem("password"))),
 rink:"T.Mask",
@@ -1498,7 +1499,7 @@ function decrypt(txt) {
     return result.trim();
 }
 
-let mother = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzابتثجحخدذرزسشصضطظعغفقكلمنهوي1234567890.:?؟+-"
+let mother = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzابتثجحخدذرزسشصضطظعغفقكل:منهوي1234567890.?؟+-!;'\"*][{}абвгдежзийклмнопрстуфхцчшщъыьэюяґєїі"
 const markers = ['?', '!', ';', ':', '\'', '"', '*', ']', '[', '{', '}', '\\'];
 
 onChildAdded(ref(db, 'chat_defense_class'), (snap) => {
@@ -1508,13 +1509,13 @@ onChildAdded(ref(db, 'chat_defense_class'), (snap) => {
         let n = decrypt(m.name);
         let da = decrypt(m.time);
 
-if(decrypt(m.from) === localStorage.getItem('id_user')){
+if(m.from === localStorage.getItem('id_user')){
 chat_defense.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
             </div>`;
 }
-if(decrypt(m.from) != localStorage.getItem('id_user')){
+if(m.from != localStorage.getItem('id_user')){
 chat_defense.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
@@ -1540,13 +1541,13 @@ onChildAdded(ref(db, 'chat_security_class'), (snap) => {
         let msg = decrypt(m.text);
         let n = decrypt(m.name);
         let da = decrypt(m.time);
-if(decrypt(m.from) === localStorage.getItem('id_user')){
+if(m.from === localStorage.getItem('id_user')){
 chat_security.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
             </div>`;
 }
-if(decrypt(m.from) != localStorage.getItem('id_user')){
+if(m.from != localStorage.getItem('id_user')){
 chat_security.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
@@ -1571,13 +1572,13 @@ onChildAdded(ref(db, 'chat_tisa'), (snap) => {
         let n = decrypt(m.name);
         let da = decrypt(m.time);
 
-if(decrypt(m.from) === localStorage.getItem('id_user')){
+if(m.from === localStorage.getItem('id_user')){
 chat_tisa.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
             </div>`;
 }
-if(decrypt(m.from) != localStorage.getItem('id_user')){
+if(m.from != localStorage.getItem('id_user')){
 chat_tisa.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
@@ -1604,13 +1605,13 @@ onChildAdded(ref(db, 'chat_upper_class'), (snap) => {
         let n = decrypt(m.name);
         let da = decrypt(m.time);
 
-if(decrypt(m.from) === localStorage.getItem('id_user')){
+if(m.from === localStorage.getItem('id_user')){
 chat_upper.innerHTML += `<div class="msg_me"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
             </div>`;
 }
-if(decrypt(m.from) != localStorage.getItem('id_user')){
+if(m.from != localStorage.getItem('id_user')){
 chat_upper.innerHTML += `<div class="msg_you"><h2>${n}:</h2>
             <h3>${msg}</h3>
             <p>${da}</p>
@@ -1750,7 +1751,7 @@ onValue(ref(db, "members"), (snap) => {
   Object.entries(data).forEach(([key, value]) => {
     
     // 3. فك التشفير والمقارنة مع معرف المستخدم
-if (decrypt(value.from) === localStorage.getItem("id_user")) {
+if (value.from === localStorage.getItem("id_user")) {
       id_txt.innerHTML = value.rink;
       risk_txt.innerHTML = String(value.risk);
     localStorage.setItem("minister",value.minister)
@@ -1804,7 +1805,7 @@ room_members.innerHTML = ""
 Object.entries(data).forEach(([id, m]) => {
 let ip_mem = decrypt(m.ip_address)
 let name_mem = decrypt(m.name)
-let id_mem = decrypt(m.from)
+let id_mem = m.from
 let rink_mem = m.rink
 let mem = m.minister
 let types_mem = decrypt(m.types)
@@ -1835,8 +1836,8 @@ window.Delete_member = function(id){
     if(!data) return;
     Object.entries(data).forEach(([key, value]) => {
 
-      if(decrypt(value.from) === id){
-set(ref(db, decrypt(value.from) + "set"), { a: encrypt("disagree") });
+      if(value.from === id){
+set(ref(db, value.from + "set"), { a: encrypt("disagree") });
 console.log(key)
         remove(ref(db, "members/" + key));
       }
@@ -1854,8 +1855,8 @@ console.log(rink_up,id,idc)
     if(!data) return;
     
     Object.entries(data).forEach(([key, value]) => {
-      if(decrypt(value.from) === idc){
-console.log(value.rink , decrypt(value.from))
+      if(value.from === idc){
+console.log(value.rink , value.from)
 for(let i = 0;i<=rinks.length;i++){
 if (rinks[i]=== value.rink) {
 rink_up = rinks[i+1]
@@ -1921,8 +1922,8 @@ if(decrypt(m.type) === localStorage.getItem("types")){
           <div class="sameone">
             <h3 class="name">${decrypt(m.name)}</h3>
             <h3 class="type">${decrypt(m.type)}</h3>
-            <button onclick="agree('${decrypt(m.from)}')">agree</button>
-            <button onclick="disagree('${decrypt(m.from)}x')">disagree</button>
+            <button onclick="agree('${m.from}')">agree</button>
+            <button onclick="disagree('${m.from}x')">disagree</button>
           </div>
         `;}
         
@@ -1948,7 +1949,7 @@ function remove_in_requests(){
     if(!data) return;
 
     Object.entries(data).forEach(([key, value]) => {
-      if(decrypt(value.from) === moacct){
+      if(value.from === moacct){
         remove(ref(db, "requests/" + key));
       }
     });
