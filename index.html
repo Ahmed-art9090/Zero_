@@ -1,2 +1,567 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>нулевая</title><style>body,html,iframe{width:100vw;height:100vh;padding:0;margin:0;}</style></head><body><iframe src="z.html" frameborder="0"></iframe></body></html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>خلفية تفاعلية</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+</head>
+<body>
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+<div id="log_in">
+<div id="opn_tows">
+<button id="serch" onclick="opn_tow(this.id)">serch</button>
+<button id="creat" onclick="opn_tow(this.id)">creat</button>
+</div><div id="opn_creat" style="display:none;">
+    <input placeholder="name" id="text" value="Name" />
+    <input placeholder="password" type="password" id="pass" />
+    <input placeholder="user_name" type="text" id="user_name" value="" />
+<select id="types">
+  <option value="security" id="security">security</option>
+<option value="defense" id="defense">defense</option>
+<option style="display:none;" value="tisa" id="tisa">TISA</option>
+</select>
+    <button onclick="login()" id="send">send</button>
+        </div>
+<div id="opn_serch" style="display:none;">
+<input placeholder="user_name" id="user_name_s" value="Name" />
+<input type="password" id="password_1" value="Password" placeholder="Password"/>
+<input style="display:none;" type="number" id="id_s" value="Id" />
+<button id="joine">join</button>
+</div>
+
+</div>
+    <div id="desktop" style="display:none;">
+        <!-- الشريط الأيسر -->
+        <div class="tap_rl" id="tap_l">
+            <div id="tap_left" class="in_tap_y">
+                <div class="applications" onclick="opn_windows(this.id)" id="chat_opn">
+                    <img src="chat.png" alt="Chat" />
+                </div>
+<div class="applications" onclick="opn_windows(this.id)" id="opn_terminal">
+<img src="terminal.png" alt="" />
+</div>
+
+
+            </div>
+        </div>
+
+        <!-- الشريط الأيمن -->
+        <div class="tap_rl" id="tap_r">
+            <div id="tap_right" class="in_tap_y">
+                <div class="applications" onclick="opn_windows(this.id)" id="mov_cam_opn">
+                    <img src="map.png" alt="Map" />
+                </div>
+                <div class="applications" onclick="opn_windows(this.id)" id="setting_opn">
+                    <img src="setting.png" alt="" />
+                </div>
+
+                <div class="applications" onclick="opn_windows(this.id)" id="newss_opn">
+                    <img src="financial.png" alt="" />
+                </div>
+<div class="applications" onclick="opn_windows(this.id)" id="opn_ai">
+<img src="dashboard_content.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <!-- الشريط السفلي -->
+        <div class="tap_bp" id="tap_b">
+            <div class="in_tap_x"></div>
+            <h4 id="sub_text">24:67 .77</h4>
+        </div>
+
+        <!-- مساحة للنوافذ المنبثقة لاحقاً -->
+        <div id="space">
+            <div onclick="the_top(this.id)" id="members" class="window w">
+<button id="members_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="load_members" style="width:100%;height:90%;">
+    
+</div>
+</div>
+<div onclick="the_top(this.id)" id="requests" class="window w">
+<button id="requests_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="load_requests" style="width:100%;height:90%;">
+    
+</div>
+</div>
+<div onclick="the_top(this.id)" class="window w" id="button_chat">
+<button id="button_chat_g" onclick="get_out(this.id)" class="get_out" >X</button>
+<div class="tap_windows">
+</div>
+<div style="overflow-y:auto;height:90%;width:100%;">
+<button id="b_t" onclick="opn_c(this.id)" class="c_b">T</button>
+<button id="b_a" onclick="opn_c(this.id)" class="c_b">A</button>
+<button id="b_s" onclick="opn_c(this.id)" class="c_b">S</button>
+<button id="b_u" onclick="opn_c(this.id)" class="c_b">U</button>
+<button id="b_z" onclick="opn_c(this.id)" class="c_b">Z</button>
+<button id="b_d" onclick="opn_c(this.id)" class="c_b">D</button>
+<button id="b_m" onclick="opn_c(this.id)" class="c_b">M</button>
+
+</div></div>
+<div id="chat_zero" onclick="the_top(this.id)" class="window w">
+<button id="chat_zero_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_zero" class="room">
+    
+</div>
+<input id="input_zero"/> 
+<input id="name_zero"/> 
+<button onclick="sendMessage(this.id)" id="send_zero">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_upper_class" class="window w chat_room">
+<button  id="chat_upper_class_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_upper" class="room">
+    
+</div>
+<input id="input_upper_class"/> 
+<input id="name_upper_class"/> 
+<button onclick="sendMessage(this.id)" id="send_u">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_advisor" class="window w chat_room">
+<button  id="chat_advisor_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_advisor" class="room">
+    
+</div>
+<input id="input_advisor"/> 
+<input id="name_advisor"/> 
+<button onclick="sendMessage(this.id)" id="send_advisor">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_ministers" class="window w chat_room">
+<button id="chat_ministers_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_ministers" class="room">
+    
+</div>
+<input id="input_ministers"/> 
+<input id="name_ministers"/> 
+<button onclick="sendMessage(this.id)" id="send_m">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_defense_class" class="window w chat_room">
+<button id="chat_defense_class_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_defense" class="room">
+    
+</div>
+<input id="input_defense"/> 
+<input id="name_defense"/> 
+<button onclick="sendMessage(this.id)" id="send_d">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_security_class" class="chat_room window">
+<button id="chat_security_class_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_security" class="room">
+    
+</div>
+<input id="input_security"/> 
+<input onclick="sendMessage(this.id)" id="name_security"/> 
+<button onclick="sendMessage(this.id)" id="send_security">send</button>
+</div>
+<div onclick="the_top(this.id)" id="chat_tisa_class" class="window w chat_room">
+<button id="chat_tisa_class_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_tisa" class="room">
+    
+</div>
+<input id="input_tisa"/> 
+<input id="name_tisa"/> 
+<button onclick="sendMessage(this.id)" id="send_t">send</button>
+</div>
+
+
+
+
+
+
+
+
+<div onclick="the_top(this.id)" id="chois_ministers" class="window w">
+<button id="ministers_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="person_ministers_tisa" ondblclick="chang_minsters(this.id)" class="minister">
+<img src="person_tisa.png" alt="" />
+<h1>MINISTER TISA</h1>
+</div>
+<div id="person_ministers_defense" ondblclick="chang_minsters(this.id)" class="minister">
+<img src="person_defense.png" alt="" />
+<h1>MINISTER DEFE</h1>
+</div>
+<div ondblclick="chang_minsters(this.id)" id="person_ministers_Security" class="minister">
+<img src="person_security.png" alt="" />
+<h1>MINISTER SECU</h1>
+</div>
+</div>
+<div onclick="the_top(this.id)" id="ministers_tisa" class="window w min">
+<button id="ministers_tisa_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<center>
+<h4 class="text_nam_minster" >MINISTER INTELLIGENCE</h4>
+</center>
+<div class="have_img">
+<img id="img_minster_tisa" src="person_tisa.png" alt="" />
+</div>
+<div class="info">
+<pre id="info_tisa">
+Name:...        nikn:.....
+types:...        rink:....
+risk:...        ip:....
+pass:...
+id:....
+</pre>
+</div>
+</div>
+<div onclick="the_top(this.id)" id="ministers_security" class="window w min">
+<button id="ministers_security_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<center>
+<h4 class="text_nam_minster" >MINISTER SECURITY</h4>
+</center>
+<div class="have_img">
+<img id="img_minster_security" src="person_security.png" alt="" />
+</div>
+<div class="info">
+<pre id="info_security">
+Name:...        nikn:.....
+types:...        rink:....
+risk:...        ip:....
+pass:...
+id:....
+
+</pre>
+</div>
+</div>
+<div onclick="the_top(this.id)" id="ministers_defense" class="window w min">
+     <div class="tap_windows"></div>
+<button id="ministers_defense_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<center>
+<h4 class="text_nam_minster" >MINISTER DEFENSE defense</h4>
+</center>
+<div class="have_img">
+<img id="img_minster_defense" src="person_defense.png" alt="" />
+</div>
+<div class="info">
+<pre id="info_defense">
+Name:...        nikn:.....
+types:...        rink:....
+risk:...        ip:....
+pass:...
+id:....
+</pre>
+</div>
+</div>
+<div onclick="the_top(this.id)" id="chang_minsters" class="window w">
+<button id="chang_minsters_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="load_chang_minsters" style="width:100%;height:90%;">
+
+</div>
+</div>
+    
+
+
+
+
+
+
+<div onclick="the_top(this.id)" id="news" class="window w">
+<button id="news_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="load_news" style="width:100%;height:90%;overflow-y:auto;">
+    
+</div>
+</div>
+
+<div onclick="the_top(this.id)" id="add_news" class="window w">
+     <div class="tap_windows"></div>
+<button id="add_news_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<h3 id="">NEWS ADD</h3>
+<input type="text" id="h_news"class="inputs"/>
+<textarea height="30%" id="txt_news"class="inputs"></textarea>
+<input style="display:none;" id="file_news" type="file" placeholder="*" style="display:;">
+<label for="file_news" class="buttons" style="background:url('files.png');background-size:cover;" ></label>
+<button id="send_news" class="buttons">+</button>
+
+</div>
+<div onclick="the_top(this.id)" class="window w" id="newss">
+<button id="newss_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<div class="tap_windows"></div>
+<div style="overflow-y:auto;height:90%;width:100%;">
+<button onclick="opn_windows(this.id)" id="news_opn" class="c_b"><center><img src="news.png"></center></button>
+<button onclick="opn_windows(this.id)" id="button_news_opn" class="c_b"><center><img src="news_1.png"></center></button>
+<button onclick="opn_windows(this.id)" id="opn_all_news" class="c_b"><center><img src="all_news.png"></center></button>
+<button onclick="opn_windows(this.id)" id="add_news_opn" class="c_b"><center><img src="add_news.png"></center></button>
+<button onclick="opn_windows(this.id)" id="financial_opn" class="c_b"><center><img src="financial.png"></center></button>
+<button onclick="opn_windows(this.id)" id="world_monitor_opn" class="c_b"><center><img src="world_monitor.jpg"></center></button>
+<button onclick="opn_windows(this.id)" id="dashboard_opn" class="c_b"><center><img src="dashboard.png"></center></button>
+<button onclick="opn_windows(this.id)" id="import_news_opn" class="c_b"><center><img src="import_news.png"></center></button>
+</div>
+</div>
+
+
+
+
+
+<div onclick="the_top(this.id)" id="window_import_news" class="window w">
+<button id="window_import_news_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<div id="room_import_news" style="width:100%;height:90%;overflow-y:auto;">
+
+</div>
+</div>
+
+<div onclick="the_top(this.id)" id="world_monitor" class="window w">
+<button id="world_monitor_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<iframe 
+    src="https://world-monitor.com/" 
+    width="100%" 
+    height="500" 
+    frameborder="0" 
+    id="iframe0"
+    class="iframe_news">
+</iframe>
+</div>
+<div onclick="the_top(this.id)" id="setting_ai" class="window w">
+<button id="setting_ai_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<div class="tap_windows"></div>
+<div style="overflow-y:auto;height:90%;width:100%;">
+        <div class="ai-options">
+            <label><input type="checkbox" id="ai-speak-output" checked> تحدث بصوت</label>
+            <label><input type="checkbox" id="ai-execute-commands" checked> تنفيذ الأوامر</label>
+        </div>
+</div>
+</div>
+<div id="ai-assistant" class="window w ai-assistant">
+<button id="ai-assistant_b" onclick="get_out(this.id)" class="get_out" >X</button>
+    <div class="ai-header" style="display:none;">
+        <span>🤖 AI Assistant</span>
+        <button id="ai-toggle-mic" class="ai-mic-btn" title="تشغيل/إيقاف الصوت">🎤</button>
+        <button id="ai-minimize" class="ai-minimize-btn">−</button>
+    </div>
+    <div class="ai-content">
+        <div id="ai-messages" class="ai-messages">
+        </div>
+        <div class="ai-input-area">
+            <input type="text" id="ai-input" placeholder="اكتب أمراً... أو اضغط الميكروفون" />
+            <button id="ai-send">➤</button>
+        </div>
+    </div>
+</div>
+    <div onclick="the_top(this.id)" id="dashboard" class="window w">
+    <button id="dashboard_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+<div id="dashboard_content" style="height: 90%; overflow-y: auto;">
+<div style="align-items: center;display: flex;height: 100%;width:100%;">
+<img src="files/dashboard_content.png" style="width:40%;"/>
+<div class="window w_dashbord"id="window_dashbord_1"  style="height: 80%;width:55%;">
+<div class="infos">
+<h1 id="number_members">members</h1>
+</div>
+<div class="infos">
+<h1 id="number_news">news</h1>
+</div>
+<div class="infos">
+<h1 id="number_ministers">minster</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages">messages</h1>
+</div>
+<div class="infos">
+<h1 id="number_import_news_posts">import news</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages_zero">messages</h1>
+</div>
+</div>
+    </div>
+<div style="align-items: center;display: flex;height: 60%;width:100%;">
+<div class="window w_dashbord"id="window_dashbord_2"  style="height: 100%;width:31%;margin-left:6%;">
+<div class="infos">
+<h1 id="number_messages_minster">messages</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages_upper_class">messages</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages_tisa">minster</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages_defense">messages</h1>
+</div>
+<div class="infos">
+<h1 id="number_messages_security">messages</h1>
+</div>
+</div>
+<div class="window w_dashbord"id="window_dashbord_3"  style="height: 100%;width:56%;margin-left:2%;display:inline-block;">
+<div class="in_data">
+<h3 class="txt_info" id="txt_members">Members : </h3>
+    <div class="tap_data">
+<div id="tap_members" class="tap"></div>
+</div>
+<h3 class="txt_info" id="txt_tisa"> : </h3>
+    <div class="tap_data">
+<div id="tap_tisa" class="tap"></div>
+</div>
+<h3 class="txt_info" id="txt_messages">condition MEMBERS : </h3>
+    <div class="tap_data">
+<div id="tap_messages" class="tap"></div>
+</div>
+</div>
+</div>
+</div>
+<br />
+<br />
+</div>
+</div>
+<div onclick="the_top(this.id)" id="news_aj_e" class="window w">
+<button id="news_aj_e_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<iframe 
+    src="https://www.youtube.com/embed/HpsfGSiAc3I" 
+    width="100%" 
+    height="500" 
+    frameborder="0" 
+    id="iframe1"
+    class="iframe_news">
+</iframe>
+</div>
+<div onclick="the_top(this.id)" id="news_cn_web" class="window w">
+<button id="news_cn_web_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<iframe 
+    src="https://arabic.cnn.com/" 
+    width="100%" 
+    height="500" 
+    frameborder="0" 
+    class="iframe_news">
+</iframe>
+</div>
+<div onclick="the_top(this.id)" id="news_cna" class="window w">
+<button id="news_cna_b" onclick="get_out(this.id)" class="get_out" >X</button>
+  <iframe class="iframe_news" src="https://www.youtube.com/embed/live_stream?channel=UC83jt4dlz1Gjl58fzQrrKZg" width="100%" height="500" frameborder="0" ></iframe>
+</div>
+<div onclick="the_top(this.id)" id="news_cnn" class="window w">
+<button id="news_cnn_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<iframe src="https://cnn.com/cnn-live" width="100%" height="500" frameborder="0" class="iframe_news"></iframe>
+</div>
+<div onclick="the_top(this.id)" id="news_aj_a" class="window w">
+<button id="news_aj_a_b" onclick="get_out(this.id)" class="get_out" >X</button>
+<iframe src="https://www.youtube.com/embed/live_stream?channel=UCQfwfsi5VrQ8yKZ-UWmAEFg" width="100%" height="500" frameborder="0" class="iframe_news"></iframe/>
+</div>
+<div onclick="the_top(this.id)" class="window w" id="button_news">
+<button id="button_news_g" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+<button id="b_j_a" onclick="opn_n(this.id)" class="c_b">French 24</button>
+<button id="b_j_e" onclick="opn_n(this.id)" class="c_b">Al Jazeera E</button>
+<button id="b_c_n" onclick="opn_n(this.id)" class="c_b">CNN</button>
+<button id="b_c_n_a" onclick="opn_n(this.id)" class="c_b">CNA</button>
+<button id="b_c_n_w" onclick="opn_n(this.id)" class="c_b">CNA WEB</button>
+</div>
+<!-- نافذة التيرمنال -->
+<div onclick="the_top(this.id)" id="window_terminal" class="window w">
+    <button id="window_terminal_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+    <textarea id="terminal" rows="1" cols="20" style="width:98%; height:88%; background:black; color:#22FF00; border:none; margin:1%;"></textarea>
+</div>
+
+<!-- نافذة الأخبار العالمية -->
+<div onclick="the_top(this.id)" id="all_news" class="window w">
+    <button id="all_news_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+    <div id="room_all_news" style="width:100%; height:90%; overflow:auto;"></div>
+</div>
+
+<!-- نافذة dashboard المالية -->
+<div onclick="the_top(this.id)" id="financial_dashboard" class="window w">
+    <button id="financial_dashboard_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+    <div id="financial_content" style="width:100%; height:90%; overflow:auto;"></div>
+</div>
+
+<!-- نافذة worldmonitor -->
+<div onclick="the_top(this.id)" id="worldmonitor" class="window w">
+    <button id="worldmonitor_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <iframe src="https://www.worldmonitor.app/?lat=5.0000&lon=18.5346&zoom=1.00&view=africa&timeRange=7d&layers=conflicts%2Chotspots%2Csanctions%2Cweather%2Coutages%2Cnatural%2CiranAttacks" width="100%" height="500" frameborder="0" class="iframe_news"></iframe>
+</div>
+
+<!-- نافذة deep_news (تحليل الأخبار) -->
+<div onclick="the_top(this.id)" id="deep_news" class="window w">
+    <button id="deep_news_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <button id="deep_news_d" onclick="go_down(this.id)" class="go_down">^</button>
+    <div class="tap_windows"></div>
+    <div id="room_deep_news" style="overflow:auto; height:90%;">
+        <div class="div_glb"><center><model-viewer src="" auto-rotate camera-orbit="0deg 90deg 10m" camera-controls style="height:100%;" id="print_3d"></model-viewer></center></div>
+        <br><h6 id="txt_deep_news"></h6><br><h5 id="title_deep_news"></h5>
+    </div>
+</div>
+
+<!-- نافذة معلومات العضو (info_mem) -->
+<div onclick="the_top(this.id)" id="info_mem" class="window w">
+    <button id="info_mem_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+    <center><h4 id="text_info_mem">..........</h4></center>
+    <div class="have_img"><img id="img_membera_types" src="person_security.png" alt="" /></div>
+    <div class="info"><pre id="info_all_mem">Name:...        nikn:.....<br>types:...        rink:....<br>risk:...        ip:....<br>pass:...<br>id:....</pre></div>
+</div>
+<div onclick="the_top(this.id)" id="financial_dashboard" class="window w">
+    <button id="financial_dashboard_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+    <div id="financial_content" style="width:100%;height:90%;overflow:auto;">
+    </div>
+</div>
+<div onclick="the_top(this.id)" id="mov_cam" class="window w">
+    <button id="mov_cam_b" onclick="get_out(this.id)" class="get_out">X</button>
+    <div class="tap_windows"></div>
+<br />
+<center>
+    <h3>MOVE CM</h3>
+<input type="text" placeholder="Name City" id="input_name_map" value="LANDAN" style="width:90%;">
+<input type="text" placeholder="Zoom Map" id="input_zoom_map" value="14" style="width:29%;">
+<input type="text" placeholder="Corner Map" id="input_corner_map" value="180" style="width:29%;">
+<input type="text" placeholder="Rise Map" id="input_rise_map" value="130" style="width:29%;">
+<button onclick="move_serch()" style="width:100%;">MOVE</button>
+</center>
+</div>
+<div onclick="the_top(this.id)" id="setting" class="window w">
+<button id="setting_b" onclick="get_out(this.id)" class="get_out" >X</button>
+ <div class="tap_windows"></div>
+ <div style="height:90%;width:100%;overflow-y:auto;">
+     <center>
+<select id="data_clear" style="width:90%;color:red;border:none;border-bootom:white solid 1px;border-top:white 1px solid;background:none;margin-top:1%;">
+    <option value="ALL">ALL</option>
+    <option value="ALL+/">ALL*</option>
+  <option value="chat_upper_class">chat_upper_class</option>
+  <option value="chat_zeros">chat_zeros</option>
+<option value="chat_ministers">chat_ministers</option>
+<option value="chat_security_class">chat_security_class</option>
+<option value="chat_defense_class">chat_defense_class</option>
+<option value="chat_tisa">chat_tisa</option>
+<option value="requests">requests</option>
+<option value="map">map</option>
+<option value="members">members</option>
+<option value="news">news</option>
+</select>
+<button style="width:90%;color:red;border:none;border-bootom:white solid 1px;border-top:white 1px solid;margin-top:2%;" id="clear">Done</button>
+<br />
+<input type="color" name="color_all" id="color_all" value="" />
+<select id="chois_chang_window">
+<option value="ALL">ALL</option>
+<option value="members">members</option>
+</select>
+<button onclick="chang_border_window()">Chang</button>
+</center>
+ </div>
+</div>
+        </div>
+<button onclick="current_map()" id="current_map">No Move</button>
+        <div id="map" style="display:;" class="background-map"></div>
+    </div>
+
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
